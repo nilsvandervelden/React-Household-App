@@ -1,5 +1,7 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
+import { createRecipe } from '../../actions';
 
 class RecipeCreate extends React.Component {
     renderError({error, touched}) {
@@ -23,8 +25,8 @@ class RecipeCreate extends React.Component {
         );
     };
 
-    onSubmit(formValue) {
-        console.log(formValue);
+    onSubmit(formValues) {
+        this.props.createRecipe(formValues);
     }
 
     render() {
@@ -59,9 +61,10 @@ const validate = formValues => {
     return errors;
 };
 
-
-export default reduxForm({
+const formWrapped = reduxForm({
     form: 'recipeCreate',
     validate 
 })(RecipeCreate);
+
+export default connect(null, { createRecipe })(formWrapped);
 
