@@ -12,15 +12,8 @@ class RecipeList extends React.Component {
         if (recipe.userId === this.props.currentUserId) {
             return (
                 <div className="right floated content">
-                    <Link to={`/recipe/edit/${recipe.id}`} className="ui button primary">
-                        EDIT
-                    </Link>
-                    <Link
-                        to={`/recipe/delete/${recipe.id}`}
-                        className="ui button negative"
-                    >
-                        Delete
-                    </Link>
+                    <Link to={`/recipe/edit/${recipe.id}`} className="ui button primary">Edit</Link>
+                    <Link to={`/recipe/delete/${recipe.id}`} className="ui button negative">Delete</Link>
                 </div>
             );
         }
@@ -29,12 +22,27 @@ class RecipeList extends React.Component {
     renderList() {
         return this.props.recipes.map(recipe => {
             return (
-                <div className="item" key={recipe.id}>
-                    {this.renderAdmin(recipe)}
-                    <i className="large middle aligned icon camera" />
-                    <div className="content">
-                        {recipe.title}
-                        <div className="time">{`${recipe.time} min`}</div>
+                <div className="ui cards" key={recipe.id}>
+                    <div className="card">
+                        <div className="content">
+                            <h4 className="ui right floated icon header">
+                                <i className="circular utensils icon"></i>
+                            </h4>
+                            <div className="header">
+                                {recipe.title}
+                            </div>x
+                            <div className="meta">
+                                {`${recipe.time} min`}
+                            </div>
+                            <div className="description">
+                                {recipe.description}
+                            </div>
+                        </div>
+                        <div className="extra content">
+                            <div class="ui two buttons">
+                                {this.renderAdmin(recipe)}
+                            </div>
+                        </div>
                     </div>
                 </div>
             );
@@ -57,7 +65,10 @@ class RecipeList extends React.Component {
     render() {
         return (
             <div>
-                <h2>Recipes</h2>
+                <h2 className="ui center aligned icon header">
+                    <i className="circular utensils icon"></i>
+                    Wat eten we vandaag?
+                </h2>
                 <div className="ui celled list">{this.renderList()}</div>
                 {this.renderCreate()}
             </div>

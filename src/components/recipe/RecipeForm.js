@@ -87,9 +87,14 @@ class RecipeForm extends React.Component {
                     component={this.renderInput}
                     label="Enter the Price"
                 />
-                <FieldArray name="ingredients" component={this.renderIngredients} />
-                <FieldArray name="step" component={this.renderSteps} />
-
+                <FieldArray 
+                    name="ingredients" 
+                    component={this.renderIngredients} 
+                />
+                <FieldArray 
+                    name="step" 
+                    component={this.renderSteps} 
+                />
                 <button className="ui button primary">Submit</button>
             </form>
         );
@@ -110,9 +115,6 @@ const validate = formValues => {
     }
     if (!formValues.price) {
         errors.price = "You must enter the price";
-    }
-    if (!formValues.ingredients) {
-        errors.ingredients = "You must enter the ingredients";
     }
     return errors;
 };
