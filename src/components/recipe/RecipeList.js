@@ -12,11 +12,11 @@ class RecipeList extends React.Component {
         if (recipe.userId === this.props.currentUserId) {
             return (
                 <div className="right floated content">
-                    <Link to={`/recipes/edit/${recipe.id}`} className="ui button primary">
+                    <Link to={`/recipe/edit/${recipe.id}`} className="ui button primary">
                         EDIT
                     </Link>
                     <Link
-                        to={`/recipes/delete/${recipe.id}`}
+                        to={`/recipe/delete/${recipe.id}`}
                         className="ui button negative"
                     >
                         Delete
@@ -34,7 +34,7 @@ class RecipeList extends React.Component {
                     <i className="large middle aligned icon camera" />
                     <div className="content">
                         {recipe.title}
-                        <div className="description">{recipe.description}</div>
+                        <div className="time">{`${recipe.time} min`}</div>
                     </div>
                 </div>
             );
@@ -46,7 +46,7 @@ class RecipeList extends React.Component {
         if (this.props.isSignedIn) {
             return (
                 <div style={{ textAlign: 'right' }}>
-                    <Link to="/recipes/new" className="ui button primary">
+                    <Link to="/recipe/new" className="ui button primary">
                         Create Recipe
                     </Link>
                 </div>

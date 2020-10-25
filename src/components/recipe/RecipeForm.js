@@ -1,5 +1,5 @@
 import React from 'react';
-import {Field, reduxForm} from 'redux-form';
+import {Field, FieldArray, reduxForm} from 'redux-form';
 
 class RecipeForm extends React.Component {
     renderError({ error, touched }) {
@@ -11,6 +11,40 @@ class RecipeForm extends React.Component {
             );
         }
     }
+    
+    renderIngredients = ({ fields }) => (
+        <ul>
+            <button className="ui button positive" type="button" onClick={() => fields.push({})}>
+                Add Ingredient
+            </button>
+            {fields.map((ingredient, index) => (
+                <li key={index}>
+                    <Field
+                        name={`${ingredient}${index}`}
+                        component={this.renderInput}
+                        label={`Ingredient #${index + 1}`}
+                    />
+                </li>
+            ))}
+        </ul>
+    );
+
+    renderSteps = ({ fields }) => (
+        <ul>
+            <button className="ui button positive" type="button" onClick={() => fields.push({})}>
+                Add Preperation Step
+            </button>
+            {fields.map((step, index) => (
+                <li key={index}>
+                    <Field
+                        name={`${step}${index}`}
+                        component={this.renderInput}
+                        label={`Step #${index + 1}`}
+                    />
+                </li>
+            ))}
+        </ul>
+    );
 
     renderInput = ({ input, label, meta }) => {
         const className = `field ${meta.error && meta.toched ? 'error' : ''}`;
@@ -33,12 +67,29 @@ class RecipeForm extends React.Component {
                 onSubmit={this.props.handleSubmit(this.onSubmit)}
                 className="ui form error"
             >
-                <Field name="title" component={this.renderInput} label="Enter Title" />
-                <Field
-                    name="description"
-                    component={this.renderInput}
-                    label="Enter Description"
+                <Field 
+                    name="title" 
+                    component={this.renderInput} 
+                    label="Enter Recipe Name" 
                 />
+                <Field
+                    name="people"
+                    component={this.renderInput}
+                    label="Enter Amount of People"
+                />
+                <Field
+                    name="time"
+                    component={this.renderInput}
+                    label="Enter Amount of Time"
+                />
+                <Field
+                    name="price"
+                    component={this.renderInput}
+                    label="Enter the Price"
+                />
+                <FieldArray name="ingredients" component={this.renderIngredients} />
+                <FieldArray name="step" component={this.renderSteps} />
+
                 <button className="ui button primary">Submit</button>
             </form>
         );
@@ -51,9 +102,17 @@ const validate = formValues => {
     if (!formValues.title) {
         errors.title = "You must enter a title";
     }
-
-    if (!formValues.description) {
-        errors.description = "You must enter a description";
+    if (!formValues.people) {
+        errors.people = "You must enter the amount op people";
+    }
+    if (!formValues.time) {
+        errors.time = "You must enter the amount of time";
+    }
+    if (!formValues.price) {
+        errors.price = "You must enter the price";
+    }
+    if (!formValues.ingredients) {
+        errors.ingredients = "You must enter the ingredients";
     }
     return errors;
 };
