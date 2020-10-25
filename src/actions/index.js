@@ -1,6 +1,14 @@
 import recipes from '../apis/recipes';
-import { SIGN_IN, SIGN_OUT } from './types';
-import { formValues } from 'redux-form';
+import history from '../history'
+import {
+    SIGN_IN,
+    SIGN_OUT,
+    CREATE_RECIPE,
+    FETCH_RECIPE,
+    FETCH_RECIPES,
+    DELETE_RECIPE,
+    EDIT_RECIPE,
+}   from './types';
 
 export const signIn = userId => {
     return {
@@ -15,6 +23,10 @@ export const signOut = () => {
     };
 };
 
-export const createRecipe = formValues => async dispatch => {
-    recipes.post('/streams', formValues);
+export const createRecipe = formValues => async (dispatch, getState) => {
+    const { userId } = getState().auth;
+    const response = await recipes.post('/recipes', {...formValues, userId });
+
+    dispatch({ type: CREATE_RECIPE, payload: response.data });
+    history.push('/')
 };
