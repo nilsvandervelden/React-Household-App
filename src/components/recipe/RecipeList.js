@@ -12,7 +12,7 @@ class RecipeList extends React.Component {
         if (recipe.userId === this.props.currentUserId) {
             return (
                 <div className="right floated content">
-                    <Link to={`/recipe/edit/${recipe.id}`} className="ui button primary">
+                    <Link to={`/recipes/edit/${recipe.id}`} className="ui button primary">
                         EDIT
                     </Link>
                     <Link
@@ -41,6 +41,7 @@ class RecipeList extends React.Component {
         });
     }
 
+
     renderCreate() {
         if (this.props.isSignedIn) {
             return (
@@ -66,8 +67,8 @@ class RecipeList extends React.Component {
 
 const mapStateToProps = state => {
     return {
-        streams: Object.values(state.recipes),
-        currentUserId: state:auth.userId,
+        recipes: Object.values(state.recipes),
+        currentUserId: state.auth.userId,
         isSignedIn: state.auth.isSignedIn
     };
 };

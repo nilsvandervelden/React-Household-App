@@ -30,3 +30,9 @@ export const createRecipe = formValues => async (dispatch, getState) => {
     dispatch({ type: CREATE_RECIPE, payload: response.data });
     history.push('/')
 };
+
+export const fetchRecipes = () => async dispatch => {
+    const response = await recipes.get('/recipes');
+  
+    dispatch({ type: FETCH_RECIPES, payload: response.data });
+};
