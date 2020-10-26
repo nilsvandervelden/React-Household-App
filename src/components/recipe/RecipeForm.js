@@ -87,6 +87,11 @@ class RecipeForm extends React.Component {
                     component={this.renderInput}
                     label="Enter the Price"
                 />
+                <Field
+                    name="description"
+                    component={this.renderInput}
+                    label="Enter a Description"
+                />
                 <FieldArray 
                     name="ingredients" 
                     component={this.renderIngredients} 
@@ -115,6 +120,9 @@ const validate = formValues => {
     }
     if (!formValues.price) {
         errors.price = "You must enter the price";
+    }
+    if (!formValues.description) {
+        errors.description = "You must enter a description";
     }
     return errors;
 };
