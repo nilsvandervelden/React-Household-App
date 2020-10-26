@@ -18,7 +18,7 @@ const App = () => {
                     <Route path="/recipes/new" exact component={RecipeCreate} />
                     <Route path="/recipes/edit/:id" exact component={RecipeEdit} />
                     <Route path="/recipes/delete/:id" exact component={RecipeDelete} />
-                    <Route path="/recipes/show" exact component={RecipeShow} />
+                    <Route path="/recipes/:id" exact component={RecipeShow} />
                 </div>
             </Router>
         </div>

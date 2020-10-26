@@ -24,14 +24,16 @@ class RecipeList extends React.Component {
             return (
                 <div className="five wide column" key={recipe.id}>
                     <div className="ui cards">
-                        <div className="ui link card">
+                        <div className="card">
                             <div className="content">
                                 <h4 className="ui right floated icon header">
                                     <i className="circular utensils icon"></i>
                                 </h4>
-                                <div className="header">
-                                    {recipe.title}
-                                </div>
+                                <Link to={`/recipes/${recipe.id}`} className="header">
+                                    <div className="header">
+                                        {recipe.title}
+                                    </div>
+                                </Link>
                                 <div className="meta">
                                     {`${recipe.time} min`}
                                     <br></br>
