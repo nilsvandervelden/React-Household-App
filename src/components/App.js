@@ -1,16 +1,17 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { Route, Router } from 'react-router-dom';
 import RecipeList from './recipe/RecipeList';
 import RecipeCreate from './recipe/RecipeCreate';
 import RecipeDelete from './recipe/RecipeDelete';
 import RecipeEdit from './recipe/RecipeEdit';
 import RecipeShow from './recipe/RecipeShow';
 import Header from './Header';
+import history from '../history';
 
 const App = () => {
   return (
         <div className="ui container">
-            <BrowserRouter>
+            <Router history={history}>
                 <div>
                     <Header />
                     <Route path="/" exact component={RecipeList} />
@@ -19,7 +20,7 @@ const App = () => {
                     <Route path="/recipe/delete" exact component={RecipeDelete} />
                     <Route path="/recipe/show" exact component={RecipeShow} />
                 </div>
-            </BrowserRouter>
+            </Router>
         </div>
     );
 };

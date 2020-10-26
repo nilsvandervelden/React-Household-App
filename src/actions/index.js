@@ -36,3 +36,24 @@ export const fetchRecipes = () => async dispatch => {
   
     dispatch({ type: FETCH_RECIPES, payload: response.data });
 };
+
+export const fetchRecipe = (id) => async dispatch => {
+    const response = await recipes.get(`/recipes/${id}`);
+  
+    dispatch({ type: FETCH_RECIPE, payload: response.data });
+};
+
+export const editRecipe = (id, formValues) => async dispatch => {
+    const response = await recipes.patch(`/streams/${id}`, formValues);
+
+    dispatch({ type: EDIT_RECIPE, payload: response.data });
+    history.push('/');
+};
+
+export const deleteRecipe = id => async dispatch => {
+    await recipes.delete(`/recipes/${id}`);
+    console.log('test');
+
+    dispatch({ type: DELETE_RECIPE, payload: id });
+    history.push('/')
+};

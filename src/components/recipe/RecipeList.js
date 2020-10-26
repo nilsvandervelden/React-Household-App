@@ -22,8 +22,8 @@ class RecipeList extends React.Component {
     renderList() {
         return this.props.recipes.map(recipe => {
             return (
-                <div className="five wide column">
-                    <div className="ui cards" key={recipe.id}>
+                <div className="five wide column" key={recipe.id}>
+                    <div className="ui cards">
                         <div className="card">
                             <div className="content">
                                 <h4 className="ui right floated icon header">
@@ -44,7 +44,7 @@ class RecipeList extends React.Component {
                                 </div>
                             </div>
                             <div className="extra content">
-                                <div class="ui two buttons">
+                                <div className="ui two buttons">
                                     {this.renderAdmin(recipe)}
                                 </div>
                             </div>
