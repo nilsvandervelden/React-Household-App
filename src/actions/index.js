@@ -44,7 +44,7 @@ export const fetchRecipe = (id) => async dispatch => {
 };
 
 export const editRecipe = (id, formValues) => async dispatch => {
-    const response = await recipes.patch(`/streams/${id}`, formValues);
+    const response = await recipes.patch(`/recipes/${id}`, formValues);
 
     dispatch({ type: EDIT_RECIPE, payload: response.data });
     history.push('/');
@@ -52,7 +52,6 @@ export const editRecipe = (id, formValues) => async dispatch => {
 
 export const deleteRecipe = id => async dispatch => {
     await recipes.delete(`/recipes/${id}`);
-    console.log('test');
 
     dispatch({ type: DELETE_RECIPE, payload: id });
     history.push('/')

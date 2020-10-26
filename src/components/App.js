@@ -15,10 +15,10 @@ const App = () => {
                 <div>
                     <Header />
                     <Route path="/" exact component={RecipeList} />
-                    <Route path="/recipe/new" exact component={RecipeCreate} />
-                    <Route path="/recipe/edit" exact component={RecipeEdit} />
-                    <Route path="/recipe/delete" exact component={RecipeDelete} />
-                    <Route path="/recipe/show" exact component={RecipeShow} />
+                    <Route path="/recipes/new" exact component={RecipeCreate} />
+                    <Route path="/recipes/edit/:id" exact component={RecipeEdit} />
+                    <Route path="/recipes/delete/:id" exact component={RecipeDelete} />
+                    <Route path="/recipes/show" exact component={RecipeShow} />
                 </div>
             </Router>
         </div>

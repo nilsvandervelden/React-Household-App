@@ -12,8 +12,8 @@ class RecipeList extends React.Component {
         if (recipe.userId === this.props.currentUserId) {
             return (
                 <div className="right floated content">
-                    <Link to={`/recipe/edit/${recipe.id}`} className="ui button primary">Edit</Link>
-                    <Link to={`/recipe/delete/${recipe.id}`} className="ui button negative">Delete</Link>
+                    <Link to={`/recipes/edit/${recipe.id}`} className="ui button primary">Edit</Link>
+                    <Link to={`/recipes/delete/${recipe.id}`} className="ui button negative">Delete</Link>
                 </div>
             );
         }
@@ -60,7 +60,7 @@ class RecipeList extends React.Component {
         if (this.props.isSignedIn) {
             return (
                 <div style={{ textAlign: 'right', margin: 10}}>
-                    <Link to="/recipe/new" className="ui button primary">
+                    <Link to="/recipes/new" className="ui button primary">
                         Create Recipe
                     </Link>
                 </div>
