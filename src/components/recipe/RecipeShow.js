@@ -7,15 +7,27 @@ class RecipeShow extends React.Component{
         this.props.fetchRecipe(this.props.match.params.id);
     }
 
-    renderIngredients() {
-        const recipeArray = this.props.recipe.step;
-        var index
-        for (index = 0; index <= recipeArray.length; index++) {
-            console.log(recipeArray[index][0])
+    renderSteps() {
+        const stepsObjectArray = this.props.recipe.step;
+        const steps = []
+
+        for (let index = 0; index < stepsObjectArray.length; index++) {
+            steps.push(<li key={index}>{stepsObjectArray[index][index]}</li>)
         }
+        return steps;
     }
 
-    render() {
+    renderIngredients() {
+        const ingredientObjectArray = this.props.recipe.ingredients;
+        const ingredients = []
+
+        for (let index = 0; index < ingredientObjectArray.length; index++) {
+            ingredients.push(<li key={index}>{ingredientObjectArray[index][index]}</li>)
+        }
+        return ingredients
+    }
+
+    renderList() {
         if (!this.props.recipe) {
             return <div>Loading...</div>
         }
@@ -24,12 +36,43 @@ class RecipeShow extends React.Component{
 
         return (
             <div>
-                <h1>{this.props.recipe.title} </h1>
-                <h5>{this.props.recipe.description} </h5>
-                {/* <h5>{recipeArray[0][0]} </h5> */}
-                <h5>{this.renderIngredients()}</h5>
+                <h1>{title} </h1>
+                <div className="ui raised segment">
+                    <h5>{description} </h5>
+                </div>
+                <div className="five wide column">
+                    <div className="ui divided items">
+                        <h3> Ingredients: </h3>
+                        <div className="item">
+                            <div className="middle aligned content">
+                                {this.renderIngredients()}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="five wide column">
+                    <div className="ui divided items">
+                        <h3> Steps: </h3>
+                        <div className="item">
+                            <div className="middle aligned content">
+                            {this.renderSteps()}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         )
+    }
+
+    render() {
+        return (
+            <div>
+                <div className="ui grid">
+                    {this.renderList()}
+                </div>
+            </div>
+        );
     }
 }
 
