@@ -36,12 +36,14 @@ class RecipeShow extends React.Component{
 
         return (
             <div>
-                <h1>{title} </h1>
+                <div>
+                    <h1>{title} </h1>
+                </div>
                 <div className="ui raised segment">
                     <h5>{description} </h5>
                 </div>
-                <div className="five wide column">
-                    <div className="ui divided items">
+                <div className="ui two column very relaxed stackable grid">
+                    <div className="column">
                         <h3> Ingredients: </h3>
                         <div className="item">
                             <div className="middle aligned content">
@@ -49,10 +51,7 @@ class RecipeShow extends React.Component{
                             </div>
                         </div>
                     </div>
-                </div>
-
-                <div className="five wide column">
-                    <div className="ui divided items">
+                    <div className="column">
                         <h3> Steps: </h3>
                         <div className="item">
                             <div className="middle aligned content">
