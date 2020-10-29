@@ -31,8 +31,8 @@ class RecipeEdit extends React.Component {
             <div>
                 <h3> Edit a Recipe </h3>
                 <RecipeForm
-                    initialValues={_.pick(this.props.recipe, 'title', 'description', 'people', 'time', 'price')}
-                    //initialValues={_.pick(this.renderIngredients)}
+                    initialValues={_.pick(this.props.recipe, 
+                        'title', 'description', 'people', 'time', 'price','ingredients', 'step')}
                     onSubmit={this.onSubmit}
                 />
             </div>
