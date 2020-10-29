@@ -13,16 +13,6 @@ class RecipeEdit extends React.Component {
         this.props.editRecipe(this.props.match.params.id, formValues);
     };
 
-    renderIngredients() {
-        const ingredientObjectArray = this.props.recipe.ingredients;
-        const ingredients = []
-
-        for (let index = 0; index < ingredientObjectArray.length; index++) {
-            ingredients.push(<li key={index}>{ingredientObjectArray[index][index]}</li>)
-        }
-        return ingredients
-    }
-
     render() {
         if (!this.props.recipe) {
             return <div> Loading... </div>
