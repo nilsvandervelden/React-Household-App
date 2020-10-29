@@ -12,7 +12,7 @@ class RecipeShow extends React.Component{
         const steps = []
 
         for (let index = 0; index < stepsObjectArray.length; index++) {
-            steps.push(<li key={index}>{stepsObjectArray[index][index]}</li>)
+            steps.push(<li style={{margin: 10}} key={index}>{stepsObjectArray[index][index] }</li>)
         }
         return steps;
     }
@@ -53,11 +53,11 @@ class RecipeShow extends React.Component{
                     </div>
                     <div className="column">
                         <h3> Steps: </h3>
-                        <div className="item">
+                        <ol className="item">
                             <div className="middle aligned content">
                             {this.renderSteps()}
                             </div>
-                        </div>
+                        </ol>
                     </div>
                 </div>
             </div>

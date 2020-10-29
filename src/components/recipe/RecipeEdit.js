@@ -10,8 +10,18 @@ class RecipeEdit extends React.Component {
     }
 
     onSubmit = formValues => {
-        this.props.editRecipe(this.props.match.props.id, formValues);
+        this.props.editRecipe(this.props.match.params.id, formValues);
     };
+
+    renderIngredients() {
+        const ingredientObjectArray = this.props.recipe.ingredients;
+        const ingredients = []
+
+        for (let index = 0; index < ingredientObjectArray.length; index++) {
+            ingredients.push(<li key={index}>{ingredientObjectArray[index][index]}</li>)
+        }
+        return ingredients
+    }
 
     render() {
         if (!this.props.recipe) {
@@ -21,7 +31,8 @@ class RecipeEdit extends React.Component {
             <div>
                 <h3> Edit a Recipe </h3>
                 <RecipeForm
-                    initialValues={_.pick(this.props.recipe, 'title', 'description')}
+                    initialValues={_.pick(this.props.recipe, 'title', 'description', 'people', 'time', 'price')}
+                    //initialValues={_.pick(this.renderIngredients)}
                     onSubmit={this.onSubmit}
                 />
             </div>
