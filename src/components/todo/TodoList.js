@@ -2,7 +2,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchTodos } from '../../actions';
 import { Link } from 'react-router-dom';
-import { zip } from 'lodash';
 
 class TodoList extends React.Component {
     componentDidMount() {
