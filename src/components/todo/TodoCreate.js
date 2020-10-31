@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createTodo } from '../../actions';
-import { TodoForm } from './TodoForm';
+import TodoForm from './TodoForm';
 
 class TodoCreate extends React.Component {
     onSubmit = formValues => {
