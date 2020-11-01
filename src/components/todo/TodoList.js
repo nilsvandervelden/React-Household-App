@@ -28,7 +28,6 @@ class TodoList extends React.Component {
             return(
                 <div className="item" key={todo.id}>
                     {this.renderAdmin(todo)}
-                    <i className="large middle aligned icon camera" />
                     <div className="content">
                         <Link to={`/todos/${todo.id}`} className="header">
                             {todo.title}
@@ -64,7 +63,6 @@ class TodoList extends React.Component {
 }
 
 const mapStateToProps = state => {
-    console.log(Object.values(state));
     return {
         todos: Object.values(state.todos),
         currentUserId: state.auth.userId,

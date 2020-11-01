@@ -36,7 +36,7 @@ export const createRecipe = formValues => async (dispatch, getState) => {
     const response = await api.post('/recipes', {...formValues, userId });
 
     dispatch({ type: CREATE_RECIPE, payload: response.data });
-    history.push('/');
+    history.push('/recipes');
 };
 
 export const fetchRecipes = () => async dispatch => {
@@ -55,14 +55,14 @@ export const editRecipe = (id, formValues) => async dispatch => {
     const response = await api.patch(`/recipes/${id}`, formValues);
 
     dispatch({ type: EDIT_RECIPE, payload: response.data });
-    history.push('/');
+    history.push('/recipes');
 };
 
 export const deleteRecipe = id => async dispatch => {
     await api.delete(`/recipes/${id}`);
 
     dispatch({ type: DELETE_RECIPE, payload: id });
-    history.push('/')
+    history.push('/recipes')
 };
 
 // TODO'S
@@ -71,7 +71,7 @@ export const createTodo = formValues => async (dispatch, getState) => {
     const response = await api.post('/todos', {...formValues, userId });
 
     dispatch({ type: CREATE_TODO, payload: response.data });
-    history.push('/');
+    history.push('/todos');
 };
 
 export const fetchTodos = () => async dispatch => {
@@ -90,12 +90,12 @@ export const editTodo = (id, formValues) => async dispatch => {
     const response = await api.patch(`/todos/${id}`, formValues);
 
     dispatch({ type: EDIT_TODO, payload: response.data });
-    history.push('/');
+    history.push('/todos');
 };
 
 export const deleteTodo = id => async dispatch => {
     await api.delete(`/todos/${id}`);
 
     dispatch({ type: DELETE_TODO, payload: id });
-    history.push('/')
+    history.push('/todos')
 };

@@ -77,7 +77,7 @@ class RecipeList extends React.Component {
                     <i className="circular utensils icon"></i>
                     Wat eten we vandaag?
                 </h2>
-                <div className="ui grid">{this.renderList()}</div>
+                <div className="ui centered grid">{this.renderList()}</div>
                 {this.renderCreate()}
             </div>
         );
