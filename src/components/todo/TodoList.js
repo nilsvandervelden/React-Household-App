@@ -29,10 +29,13 @@ class TodoList extends React.Component {
                 <div className="item" key={todo.id}>
                     {this.renderAdmin(todo)}
                     <div className="content">
-                        <Link to={`/todos/${todo.id}`} className="header">
-                            {todo.title}
-                        </Link>
-                        <div className="description">{todo.description}</div>
+                        {`Todo: ${todo.title}`}
+                    <div>
+                        {`Deadline: ${todo.date}`}
+                    </div>
+                    <div>
+                        {`Description: ${todo.description}`}
+                    </div>
                     </div>
                 </div>
             );

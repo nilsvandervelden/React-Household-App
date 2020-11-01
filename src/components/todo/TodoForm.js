@@ -13,12 +13,12 @@ class TodoForm extends React.Component {
         }
     }
 
-    renderInput = ({ input, label, meta }) => {
+    renderInput = ({ input, type, label, meta }) => {
         const className = `field ${meta.error && meta.touched ? 'error' : ''}`;
         return (
             <div className={className}>
                 <label>{label}</label>
-                <input {...input} autoComplete="off" />
+                <input {...input} type={type} autoComplete="off" />
                 {this.renderError(meta)}
             </div>
         );
@@ -39,6 +39,18 @@ class TodoForm extends React.Component {
                 component={this.renderInput}
                 label="Enter title"
             />
+            <Field 
+                name="description"
+                component={this.renderInput}
+                label="Enter description"
+            />
+            <Field 
+                name="date"
+                type="date"
+                component={this.renderInput}
+                label="Enter date"
+            />
+            
                 <button className="ui button primary">Submit</button>
             </form>
         );
@@ -50,6 +62,12 @@ const validate = formValues => {
     
     if(!formValues.title) {
         errors.title = 'You must enter a title';
+    }
+    if(!formValues.description) {
+        errors.description = 'You must enter a description';
+    }
+    if(!formValues.date) {
+        errors.date = 'You must enter a date'
     }
     return errors;
 };
