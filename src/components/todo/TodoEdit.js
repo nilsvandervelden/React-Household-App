@@ -3,7 +3,6 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchTodo, editTodo } from '../../actions';
 import TodoForm from './TodoForm';
-import { formValueSelector } from 'redux-form';
 
 class TodoEdit extends React.Component {
     componentDidMount(){
