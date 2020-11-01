@@ -63,7 +63,7 @@ class TodoList extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => {
+const mapStateToProps = state => {
     return {
         todos: Object.values(state.todos),
         currentUserId: state.auth.userId,
@@ -71,4 +71,7 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, {fetchTodos}) (TodoList);
+export default connect(
+    mapStateToProps,
+    { fetchTodos }
+  )(TodoList);
