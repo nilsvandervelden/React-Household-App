@@ -24,7 +24,7 @@ class TodoList extends React.Component {
     }
 
     renderList() {
-        return this.props.apis.map(todo => {
+        return this.props.todos.map(todo => {
             return(
                 <div className="item" key={todo.id}>
                     {this.renderAdmin(todo)}
@@ -56,8 +56,8 @@ class TodoList extends React.Component {
         return (
             <div>
                 <h2> Todos </h2>
-                <div className="ui celled list"> {this.renderList} </div>
-                {this.renderCreate}
+                <div className="ui celled list"> {this.renderList()} </div>
+                {this.renderCreate()}
             </div>
         );
     }
