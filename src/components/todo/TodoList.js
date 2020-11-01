@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 class TodoList extends React.Component {
     componentDidMount() {
         this.props.fetchTodos();
+        
   }
 
     renderAdmin(todo) {
