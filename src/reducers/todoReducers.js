@@ -5,7 +5,6 @@ import {
     FETCH_TODOS,
     DELETE_TODO,
     EDIT_TODO,
-    FETCH_TODOS,
 } from '../actions/types';
 
 export default (state = {}, action) => {

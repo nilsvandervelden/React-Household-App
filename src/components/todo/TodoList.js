@@ -64,6 +64,7 @@ class TodoList extends React.Component {
 }
 
 const mapStateToProps = state => {
+    console.log(Object.values(state));
     return {
         todos: Object.values(state.todos),
         currentUserId: state.auth.userId,
