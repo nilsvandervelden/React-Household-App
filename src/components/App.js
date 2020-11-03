@@ -11,6 +11,11 @@ import TodoCreate from './todo/TodoCreate';
 import TodoDelete from './todo/TodoDelete';
 import TodoEdit from './todo/TodoEdit.js';
 
+import GroceriesList from './groceries/GroceriesList';
+import GroceriesCreate from './groceries/GroceriesCreate';
+import GroceriesDelete from './groceries/GroceriesDelete';
+import GroceriesEdit from './groceries/GroceriesEdit.js';
+
 import LandingPage from './LandingPage';
 
 import Header from './Header';
@@ -35,6 +40,11 @@ const App = () => {
                         <Route path="/todos/new" exact component={TodoCreate} />
                         <Route path="/todos/edit/:id" exact component={TodoEdit} />
                         <Route path="/todos/delete/:id" exact component={TodoDelete} />
+
+                        <Route path="/groceries" exact component={GroceriesList} />
+                        <Route path="/groceries/new" exact component={GroceriesCreate} />
+                        <Route path="/groceries/edit/:id" exact component={GroceriesEdit} />
+                        <Route path="/groceries/delete/:id" exact component={GroceriesDelete} />
                     </Switch>
                 </div>
             </Router>

@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux'; 
-import { fetchGroceries } from '../../actions';
+import { fetchAllGroceries } from '../../actions';
 import { Link } from 'react-router-dom';
 
 class GroceriesList extends React.Component {
     componentDidMount(){
-        this.props.fetchGroceries();
+        this.props.fetchAllGroceries();
     }
 
     renderAdmin(groceries) {
@@ -71,4 +71,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, { fetchGroceries }) (GroceriesList);
+export default connect(mapStateToProps, { fetchAllGroceries }) (GroceriesList);

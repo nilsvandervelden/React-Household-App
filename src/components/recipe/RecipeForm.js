@@ -17,9 +17,9 @@ class RecipeForm extends React.Component {
             <button className="ui button positive" type="button" onClick={() => fields.push({})}>
                 Add Ingredient
             </button>
-            {fields.map((ingredient, index) => (
+            {fields.map((ingredient, index) => ( 
                 <li key={index}>
-                    <Field
+                    <Field  
                         name={`${ingredient}${index}`}
                         component={this.renderInput}
                         label={`Ingredient #${index + 1}`}

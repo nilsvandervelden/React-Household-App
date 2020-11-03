@@ -14,7 +14,7 @@ class LandingPage extends React.Component{
                         <i className="right arrow icon"></i>
                     </div>
                 </Link>
-                <Link to="/" className="ui animated button" tabIndex="0">
+                <Link to="/groceries" className="ui animated button" tabIndex="0">
                     <div className="visible content">
                         Groceries
                     </div>

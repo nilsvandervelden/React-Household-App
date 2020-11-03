@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createGroceries } from '../../actions';
-import GroceriesForm from './StreamForm';
+import GroceriesForm from './GroceriesForm';
 
 class GroceriesCreate extends React.Component {
     onSubmit = formValues => {

@@ -136,7 +136,7 @@ export const editGroceries= (id, formValues) => async dispatch => {
     history.push('/groceries');
 };
 
-export const deleteTodo = id => async dispatch => {
+export const deleteGroceries = id => async dispatch => {
     await api.delete(`/groceries/${id}`);
 
     dispatch({ type: DELETE_GROCERIES, payload: id });
