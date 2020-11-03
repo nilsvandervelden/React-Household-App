@@ -25,10 +25,10 @@ class RecipeList extends React.Component {
                 <div className="five wide column" key={recipe.id}>
                     <div className="ui cards">
                         <div className="card">
+                            <a className="image">
+                                <img src={recipe.image}></img>
+                            </a>
                             <div className="content">
-                                <h4 className="ui right floated icon header">
-                                    <i className="circular utensils icon"></i>
-                                </h4>
                                 <Link to={`/recipes/${recipe.id}`} className="header">
                                     <div className="header">
                                         {recipe.title}

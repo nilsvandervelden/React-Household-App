@@ -92,6 +92,11 @@ class RecipeForm extends React.Component {
                     component={this.renderInput}
                     label="Enter a Description"
                 />
+                <Field
+                    name="image"
+                    component={this.renderInput}
+                    label="Enter a image url"
+                />
                 <FieldArray 
                     name="ingredients" 
                     component={this.renderIngredients} 
@@ -123,6 +128,9 @@ const validate = formValues => {
     }
     if (!formValues.description) {
         errors.description = "You must enter a description";
+    }
+    if (!formValues.image) {
+        errors.image = "You must enter a image url";
     }
     return errors;
 };
