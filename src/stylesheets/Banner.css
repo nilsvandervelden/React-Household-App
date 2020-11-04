@@ -1,0 +1,21 @@
+.banner {
+    margin-bottom: 30px;
+}
+
+.banner-image {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../photos/banner_image.jpg");
+    height: 300px;
+    width: 80%;
+    margin: 0 auto;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    border-radius: 16px;
+}
+
+.banner-text {
+    margin: 20px;
+    width: auto;
+    text-align: center;
+}

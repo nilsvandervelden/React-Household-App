@@ -1,4 +1,6 @@
 import React from 'react';
+import '../../stylesheets/Banner.css';
+import '../../stylesheets/Header.css';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchRecipes } from '../../actions';
@@ -6,6 +8,16 @@ import { fetchRecipes } from '../../actions';
 class RecipeList extends React.Component {
     componentDidMount() {
         this.props.fetchRecipes();
+    }
+
+    renderBanner() {
+        return (
+            <header className="banner-image">
+                <div className="banner-text"> 
+                    <h1>Hallo</h1>
+                </div>
+            </header>
+        )
     }
 
     renderAdmin(recipe) {
@@ -72,13 +84,18 @@ class RecipeList extends React.Component {
 
     render() {
         return (
-            <div>
-                <h2 className="ui center aligned icon header">
-                    <i className="circular utensils icon"></i>
-                    Wat eten we vandaag?
-                </h2>
-                <div className="ui centered grid">{this.renderList()}</div>
-                {this.renderCreate()}
+            <div>       
+                <div className="banner">
+                    {this.renderBanner()}
+                </div>
+                <div className="header">
+                    <h1> Wat eten we vandaag? </h1>
+                    <h2> Allemaal snackies </h2>
+                </div>
+                <div>
+                    <div className="ui centered grid">{this.renderList()}</div>
+                    {this.renderCreate()}
+                </div>
             </div>
         );
     }
