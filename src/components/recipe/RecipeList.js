@@ -40,22 +40,27 @@ class RecipeList extends React.Component {
                             <a className="image">
                                 <img src={recipe.image}></img>
                             </a>
+                            <div className="meta">
+                                <div className="ui centered grid">
+                                    <div className="five wide column">
+                                        <i class="clock outline icon"></i>
+                                        {`${recipe.time} min`}
+                                    </div>
+                                    <div className="five wide column">
+                                        <i class="euro sign icon"></i>
+                                        {`${recipe.price}`}
+                                    </div>
+                                </div>
+                            </div>
                             <div className="content">
                                 <Link to={`/recipes/${recipe.id}`} className="link-header">
                                     <div className="title-header">
-                                        {recipe.title}
+                                        {recipe.title} <br></br>
+                                    </div>
+                                    <div className="description">
+                                        {recipe.description}
                                     </div>
                                 </Link>
-                                <div className="meta">
-                                    {`${recipe.time} min`}
-                                    <br></br>
-                                    {`${recipe.people} people`}
-                                    <br></br>
-                                    {`${recipe.price} euro`}
-                                </div>
-                                <div className="description">
-                                    {recipe.description}
-                                </div>
                             </div>
                             <div className="extra content">
                                 <div className="ui two buttons">
