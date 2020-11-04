@@ -15,7 +15,6 @@ class RecipeList extends React.Component {
         return (
             <header className="banner-image">
                 <div className="banner-text"> 
-                    <Field>test</Field>
                 </div>
             </header>
         )
