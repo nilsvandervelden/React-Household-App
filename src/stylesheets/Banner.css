@@ -1,10 +1,11 @@
 .banner {
     margin-bottom: 30px;
+    margin-top: 30px;
 }
 
 .banner-image {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("../photos/banner_image.jpg");
-    height: 300px;
+    height: 500px;
     width: 80%;
     margin: 0 auto;
     background-position: center;
@@ -14,9 +15,7 @@
     border-radius: 16px;
 }
 
-.banner-text {
+.banner-text h1{
     color: white;
-    margin-top: 0 auto;
-    width: auto;
     text-align: center;
 }
