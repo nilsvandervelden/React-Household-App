@@ -1,6 +1,7 @@
 import React from 'react';
 import '../../stylesheets/Banner.css';
 import '../../stylesheets/Header.css';
+import '../../stylesheets/Card.css';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchRecipes } from '../../actions';
@@ -14,7 +15,7 @@ class RecipeList extends React.Component {
         return (
             <header className="banner-image">
                 <div className="banner-text"> 
-                    <h1>Hallo</h1>
+                    <Field>test</Field>
                 </div>
             </header>
         )
@@ -36,10 +37,10 @@ class RecipeList extends React.Component {
             return (
                 <div className="five wide column" key={recipe.id}>
                     <div className="ui cards">
-                        <div className="card">
-                            <a className="image">
+                        <Link to={`/recipes/${recipe.id}`} className="card">
+                            <div className="image">
                                 <img src={recipe.image}></img>
-                            </a>
+                            </div>
                             <div className="meta">
                                 <div className="ui centered grid">
                                     <div className="five wide column">
@@ -53,21 +54,21 @@ class RecipeList extends React.Component {
                                 </div>
                             </div>
                             <div className="content">
-                                <Link to={`/recipes/${recipe.id}`} className="link-header">
+                                <div className="link-header">
                                     <div className="title-header">
                                         {recipe.title} <br></br>
                                     </div>
                                     <div className="description">
                                         {recipe.description}
                                     </div>
-                                </Link>
+                                </div>
                             </div>
                             <div className="extra content">
                                 <div className="ui two buttons">
                                     {this.renderAdmin(recipe)}
                                 </div>
                             </div>
-                        </div>
+                        </Link>
                     </div>
                 </div>
             );

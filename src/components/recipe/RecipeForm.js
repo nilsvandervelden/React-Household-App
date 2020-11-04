@@ -130,7 +130,7 @@ const validate = formValues => {
         errors.description = "You must enter a description";
     }
     if (!formValues.image) {
-        errors.image = "You must enter a image url";
+        errors.image = "You must enter a image url"
     }
     return errors;
 };

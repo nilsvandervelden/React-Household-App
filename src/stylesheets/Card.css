@@ -1,0 +1,20 @@
+a {
+    color: inherit;
+    transition: .2s;
+}
+
+
+
+.a:hover {
+    transform: scale(1.2);
+}
+
+.title-header {
+    font-size: 105%;
+    font-weight: 800;
+}
+
+.five i {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
