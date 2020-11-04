@@ -53,13 +53,11 @@ class RecipeList extends React.Component {
                                 </div>
                             </div>
                             <div className="content">
-                                <div className="link-header">
-                                    <div className="title-header">
-                                        {recipe.title} <br></br>
-                                    </div>
-                                    <div className="description">
-                                        {recipe.description}
-                                    </div>
+                                <div className="title-header">
+                                    {recipe.title}
+                                </div>
+                                <div className="description">
+                                    {recipe.description}
                                 </div>
                             </div>
                             <div className="extra content">

@@ -1,11 +1,10 @@
-a {
+.card {
     color: inherit;
     transition: .2s;
 }
 
-
-
-.a:hover {
+.card:hover {
+    color: inherit;
     transform: scale(1.2);
 }
 
