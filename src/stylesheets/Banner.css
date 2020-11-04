@@ -15,7 +15,8 @@
 }
 
 .banner-text {
-    margin: 20px;
+    color: white;
+    margin-top: 0 auto;
     width: auto;
     text-align: center;
 }

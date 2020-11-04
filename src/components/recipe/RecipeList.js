@@ -41,8 +41,8 @@ class RecipeList extends React.Component {
                                 <img src={recipe.image}></img>
                             </a>
                             <div className="content">
-                                <Link to={`/recipes/${recipe.id}`} className="header">
-                                    <div className="header">
+                                <Link to={`/recipes/${recipe.id}`} className="link-header">
+                                    <div className="title-header">
                                         {recipe.title}
                                     </div>
                                 </Link>

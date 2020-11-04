@@ -1,8 +1,17 @@
-.header h1 {
-    margin: 0 auto;
+.header {
+    letter-spacing: .2px;
+    text-align: center;
     font-size: 32px;
     line-height: 133%;
+}
+.header h1 {
+    font-size: 32px;
     font-weight: 800;
-    letter-spacing: .2px;
     margin-bottom: 8px;
+}
+
+.header h2 {
+    font-size: 22px;
+    letter-spacing: .2px;
+    margin-bottom: 40px;
 }
