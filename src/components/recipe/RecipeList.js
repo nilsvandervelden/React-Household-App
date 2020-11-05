@@ -1,23 +1,14 @@
 import React from 'react';
-import '../../stylesheets/Banner.css';
 import '../../stylesheets/Header.css';
 import '../../stylesheets/Card.css';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { fetchRecipes } from '../../actions';
+import Banner from './RecipeBanner'
 
 class RecipeList extends React.Component {
     componentDidMount() {
         this.props.fetchRecipes();
-    }
-
-    renderBanner() {
-        return (
-            <header className="banner-image">
-                <div className="banner-text"> 
-                </div>
-            </header>
-        )
     }
 
     renderAdmin(recipe) {
@@ -89,7 +80,7 @@ class RecipeList extends React.Component {
         return (
             <div>       
                 <div className="banner">
-                    {this.renderBanner()}
+                    <Banner></Banner>
                 </div>
                 <div className="header">
                     <h1> Wat eten we vandaag? </h1>

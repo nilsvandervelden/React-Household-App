@@ -1,0 +1,36 @@
+.dot {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    border: 2px solid red;
+    background-color:inherit;
+    display: inline-block;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.title {
+    margin-top: 5px;
+    font-size: 110%;
+    font-weight: 500;
+}
+
+.description {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.date {
+    display: inline-block;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    font-weight: 200;
+}

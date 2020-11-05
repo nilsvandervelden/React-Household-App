@@ -2,6 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchTodos, fetchTodo } from '../../actions';
 import { Link } from 'react-router-dom';
+import '../../stylesheets/Dot.css';
+
 
 class TodoList extends React.Component {
     componentDidMount() {
@@ -28,22 +30,65 @@ class TodoList extends React.Component {
         }
     }
 
-    renderList() {
+    renderActiveList() {
         return this.props.todos.map(todo => {
-            return(
-                <div className="item" key={todo.id} onClick={this.fetchTodo(todo)} >
-                    {this.renderAdmin(todo)}
-                    <div className="content">
-                        {`Todo: ${todo.title}`}
-                    <div>
-                        {`Deadline: ${todo.date}`}
+            if (todo.active === true) {
+                return(
+                    <div className="item" key={todo.id}>
+                        {this.renderAdmin(todo)}
+                        <div className="ui grid">
+                            <div className="one wide column">
+                                <span className="dot"></span>
+                            </div>
+                            <div className="nine wide column">
+                                <div className="title">
+                                    {`Todo: ${todo.title}`}
+                                </div>
+                                <div className="description">
+                                    {`Description: ${todo.description}`}
+                                </div>
+                            </div>
+                            <div className="six wide column">
+                                <div className="date">
+                                    <i class="calendar check outline icon"></i>
+                                    {todo.date}
+                                </div>
+                            </div> 
+                        </div>
                     </div>
-                    <div>
-                        {`Description: ${todo.description}`}
+                );
+            }
+        });
+    }
+
+    renderDeactiveList() {
+        return this.props.todos.map(todo => {
+            if (todo.active === false) {
+                return(
+                    <div className="item" key={todo.id}>
+                        {this.renderAdmin(todo)}
+                        <div className="ui grid">
+                            <div className="one wide column">
+                                <span className="dot"></span>
+                            </div>
+                            <div className="nine wide column">
+                                <div className="title">
+                                    {`Todo: ${todo.title}`}
+                                </div>
+                                <div className="description">
+                                    {`Description: ${todo.description}`}
+                                </div>
+                            </div>
+                            <div className="six wide column">
+                                <div className="date">
+                                    <i class="calendar check outline icon"></i>
+                                    {todo.date}
+                                </div>
+                            </div> 
+                        </div>
                     </div>
-                    </div>
-                </div>
-            );
+                );
+            }
         });
     }
 
@@ -62,8 +107,11 @@ class TodoList extends React.Component {
     render() {
         return (
             <div>
+                <div className="banner">
+                </div>
                 <h2> Todos </h2>
-                <div className="ui celled list"> {this.renderList()} </div>
+                <div className="ui celled list"> {this.renderActiveList()} </div>
+                <div className="ui celled list"> {this.renderDeactiveList()} </div>
                 {this.renderCreate()}
             </div>
         );
