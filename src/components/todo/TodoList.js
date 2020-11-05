@@ -1,13 +1,17 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchTodos } from '../../actions';
+import { fetchTodos, fetchTodo } from '../../actions';
 import { Link } from 'react-router-dom';
 
 class TodoList extends React.Component {
     componentDidMount() {
         this.props.fetchTodos();
-        
-  }
+    }
+
+    fetchTodo = (todo) => {
+        //this.props.fetchTodo(this.props.id);
+        console.log(todo);
+    }
 
     renderAdmin(todo) {
         if (todo.userId === this.props.currentUserId) {
@@ -29,7 +33,7 @@ class TodoList extends React.Component {
             return(
                 <div className="item" key={todo.id}>
                     {this.renderAdmin(todo)}
-                    <div className="content">
+                    <div className="content" onClick={this.fetchTodo(todo)}>
                         {`Todo: ${todo.title}`}
                     <div>
                         {`Deadline: ${todo.date}`}
@@ -76,5 +80,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { fetchTodos }
+    { fetchTodos, fetchTodo }
   )(TodoList);

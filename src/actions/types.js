@@ -12,6 +12,7 @@ export const FETCH_TODO = 'FETCH_TODO';
 export const FETCH_TODOS = 'FETCH_TODOS';
 export const DELETE_TODO = 'DELETE_TODOS';
 export const EDIT_TODO = 'EDIT_TODO';
+export const COMPLETE_TODO = 'COMPLETE_TODO';
 
 export const CREATE_GROCERIES = 'CREATE_GROCERIES';
 export const FETCH_GROCERIES = 'FETCH_GROCERIES';
