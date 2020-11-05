@@ -16,11 +16,11 @@ import {
     EDIT_TODO,
     DELETE_TODO,
 
-    CREATE_GROCERIES,
-    FETCH_GROCERIES,
-    FETCH_ALL_GROCERIES,
-    EDIT_GROCERIES,
-    DELETE_GROCERIES,
+    CREATE_PRODUCT,
+    FETCH_PRODUCT,
+    FETCH_PRODUCTS,
+    EDIT_PRODUCT,
+    DELETE_PRODUCT,
 
 }   from './types';
 
@@ -107,38 +107,38 @@ export const deleteTodo = id => async dispatch => {
     history.push('/todos')
 };
 
-// GROCERIES
+// PRODUCT
 
-export const createGroceries = formValues => async (dispatch, getState) => {
+export const createProduct = formValues => async (dispatch, getState) => {
     const { userId } = getState().auth;
-    const response = await api.post('/groceries', {...formValues, userId });
+    const response = await api.post('/products', {...formValues, userId });
 
-    dispatch({ type: CREATE_GROCERIES, payload: response.data });
-    history.push('/groceries');
+    dispatch({ type: CREATE_PRODUCT, payload: response.data });
+    history.push('/product');
 };
 
-export const fetchAllGroceries = () => async dispatch => {
-    const response = await api.get('/groceries');
+export const fetchProducts = () => async dispatch => {
+    const response = await api.get('/products');
   
-    dispatch({ type: FETCH_ALL_GROCERIES, payload: response.data });
+    dispatch({ type: FETCH_PRODUCTS, payload: response.data });
 };
 
-export const fetchGroceries = (id) => async dispatch => {
-    const response = await api.get(`/groceries/${id}`);
+export const fetchProduct = (id) => async dispatch => {
+    const response = await api.get(`/products/${id}`);
   
-    dispatch({ type: FETCH_GROCERIES, payload: response.data });
+    dispatch({ type: FETCH_PRODUCT, payload: response.data });
 };
 
-export const editGroceries= (id, formValues) => async dispatch => {
-    const response = await api.patch(`/groceries/${id}`, formValues);
+export const editProduct = (id, formValues) => async dispatch => {
+    const response = await api.patch(`/products/${id}`, formValues);
 
-    dispatch({ type: EDIT_GROCERIES, payload: response.data });
-    history.push('/groceries');
+    dispatch({ type: EDIT_PRODUCT, payload: response.data });
+    history.push('/products');
 };
 
-export const deleteGroceries = id => async dispatch => {
-    await api.delete(`/groceries/${id}`);
+export const deleteProduct = id => async dispatch => {
+    await api.delete(`/products/${id}`);
 
-    dispatch({ type: DELETE_GROCERIES, payload: id });
-    history.push('/groceries');
+    dispatch({ type: DELETE_PRODUCT, payload: id });
+    history.push('/products');
 };

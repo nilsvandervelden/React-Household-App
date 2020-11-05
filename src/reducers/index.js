@@ -3,12 +3,12 @@ import { reducer as formReducer } from 'redux-form';
 import authReducer from './authReducer';
 import recipeReducer from './recipeReducer';
 import todoReducers from './todoReducers';
-import groceriesReducer from './groceriesReducer';
+import productReducer from './productReducer';
 
 export default combineReducers({
     auth: authReducer,
     form: formReducer,
     recipes: recipeReducer,
     todos: todoReducers,
-    groceries: groceriesReducer
+    products: productReducer
 });

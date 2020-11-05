@@ -1,21 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux'; 
-import { fetchAllGroceries } from '../../actions';
+import { fetchProducs } from '../../actions';
 import { Link } from 'react-router-dom';
 
-class GroceriesList extends React.Component {
+class ProductList extends React.Component {
     componentDidMount(){
-        this.props.fetchAllGroceries();
+        this.props.fetchProducs();
     }
 
-    renderAdmin(groceries) {
-        if (groceries.userId === this.props.currentUserId) {
+    renderAdmin(products) {
+        if (products.userId === this.props.currentUserId) {
             return (
                 <div className="right floated content">
-                    <Link to={`groceries/edit/${groceries.id}`} className="ui button primary">
+                    <Link to={`products/edit/${products.id}`} className="ui button primary">
                         Edit
                     </Link>
-                    <Link to={`groceries/delete/${groceries.id}`}className="ui button negative">
+                    <Link to={`products/delete/${products.id}`}className="ui button negative">
                         Delete
                     </Link>
                 </div>
@@ -24,16 +24,16 @@ class GroceriesList extends React.Component {
     }
 
     renderList () {
-        return this.props.groceries.map(groceries => {
+        return this.props.products.map(products => {
             return (
-                <div className="item" key={groceries.id}>
-                    {this.renderAdmin(groceries)}
+                <div className="item" key={products.id}>
+                    {this.renderAdmin(products)}
                     <i className="large middle aligned icon camera" />
                     <div className="content">
-                        <Link to={`/groceries/${groceries.id}`} className="header">
-                            {groceries.title}
+                        <Link to={`/products/${products.id}`} className="header">
+                            {products.title}
                         </Link>
-                        <div className="description">{groceries.description}</div>
+                        <div className="description">{products.description}</div>
                     </div>
                 </div>
             );
@@ -65,10 +65,10 @@ class GroceriesList extends React.Component {
 
 const mapStateToProps = (state) => {
     return { 
-        groceries: Object.values(state.groceries),
+        products: Object.values(state.products),
         currentUserId: state.auth.userId,
         isSignedIn: state.auth.isSignedIn
     };
 };
 
-export default connect(mapStateToProps, { fetchAllGroceries }) (GroceriesList);
+export default connect(mapStateToProps, { fetchProducs }) (ProductList);

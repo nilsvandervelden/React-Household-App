@@ -2,7 +2,7 @@ import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
 
-class GroceriesForm extends React.Component {
+class ProductForm extends React.Component {
     renderError({ error, touched }) {
         if (touched && error) {
             return (
@@ -32,7 +32,8 @@ class GroceriesForm extends React.Component {
         return (
             <form className="ui form error" onSubmit={this.props.handleSubmit(this.onSubmit)} >
                 <Field name="title" component={this.renderInput} label="Enter Title" />
-                <Field name="description" component={this.renderInput} label="Enter Description" />
+                <Field name="price" component={this.renderInput} label="Enter Price" />
+                <Field name="url" component={this.renderInput} label="Enter Image Url" />
                 <button className="ui button primaary">Submit</button>
             </form>
         );
@@ -53,7 +54,7 @@ const validate = ( formValues ) => {
 };
 
 export default reduxForm({
-    form: 'groceriesForm',
+    form: 'productForm',
     validate
-})(GroceriesForm);
+})(ProductForm);
 
