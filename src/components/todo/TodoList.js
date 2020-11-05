@@ -47,12 +47,12 @@ class TodoList extends React.Component {
             if (todo.active === true) {
                 return(
                     <div className="item" key={todo.id}>
-                        {this.renderComplete(todo)}
+                        
                         <div className="ui grid">
                             <div className="one wide column">
                                 <span className="dot"></span>
                             </div>
-                            <div className="nine wide column">
+                            <div className="six wide column">
                                 <div className="title">
                                     {`Todo: ${todo.title}`}
                                 </div>
@@ -60,12 +60,15 @@ class TodoList extends React.Component {
                                     {`Description: ${todo.description}`}
                                 </div>
                             </div>
-                            <div className="six wide column">
+                            <div className="four wide column">
                                 <div className="date">
                                     <i className="calendar check outline icon"></i>
                                     {todo.date}
                                 </div>
                             </div> 
+                            <div className="four wide column">
+                                {this.renderComplete(todo)}
+                            </div>
                         </div>
                     </div>
                 );
