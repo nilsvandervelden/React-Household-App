@@ -10,7 +10,7 @@ class TodoList extends React.Component {
 
     fetchTodo = (todo) => {
         //this.props.fetchTodo(this.props.id);
-        console.log(todo);
+        // console.log(todo.id);
     }
 
     renderAdmin(todo) {
@@ -31,9 +31,9 @@ class TodoList extends React.Component {
     renderList() {
         return this.props.todos.map(todo => {
             return(
-                <div className="item" key={todo.id}>
+                <div className="item" key={todo.id} onClick={this.fetchTodo(todo)} >
                     {this.renderAdmin(todo)}
-                    <div className="content" onClick={this.fetchTodo(todo)}>
+                    <div className="content">
                         {`Todo: ${todo.title}`}
                     <div>
                         {`Deadline: ${todo.date}`}

@@ -76,7 +76,7 @@ export const deleteRecipe = id => async dispatch => {
 // TODO'S
 export const createTodo = formValues => async (dispatch, getState) => {
     const { userId } = getState().auth;
-    const response = await api.post('/todos', {...formValues, userId });
+    const response = await api.post('/todos', {...formValues, userId, active: true});
 
     dispatch({ type: CREATE_TODO, payload: response.data });
     history.push('/todos');
