@@ -21,7 +21,7 @@ class ProductEdit extends React.Component {
             <div>
                 <h3> Edit Product </h3>
                 <ProductForm
-                    initailValues={_.pick(this.props.product, 'title', 'description')}
+                    initialValues={_.pick(this.props.product, 'title', 'price', 'url')}
                     onSubmit={this.onSubmit}
                 />
             </div>
@@ -33,4 +33,7 @@ const mapStateToProps = (state, ownProps) => {
     return { product: state.products[ownProps.match.params.id] };
 };
 
-export default connect(mapStateToProps, { fetchProduct, editProduct})(ProductEdit);
+export default connect(
+    mapStateToProps,
+    { fetchProduct, editProduct}
+)(ProductEdit);

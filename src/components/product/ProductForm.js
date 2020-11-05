@@ -1,7 +1,6 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 
-
 class ProductForm extends React.Component {
     renderError({ error, touched }) {
         if (touched && error) {
@@ -30,11 +29,26 @@ class ProductForm extends React.Component {
 
     render() {
         return (
-            <form className="ui form error" onSubmit={this.props.handleSubmit(this.onSubmit)} >
-                <Field name="title" component={this.renderInput} label="Enter Title" />
-                <Field name="price" component={this.renderInput} label="Enter Price" />
-                <Field name="url" component={this.renderInput} label="Enter Image Url" />
-                <button className="ui button primaary">Submit</button>
+            <form 
+                onSubmit={this.props.handleSubmit(this.onSubmit)}
+                className="ui form error"
+            >
+            <Field 
+                name="title" 
+                component={this.renderInput} 
+                label="Enter Title" 
+            />
+            <Field 
+                name="price" 
+                component={this.renderInput} 
+                label="Enter Price" 
+            />
+            <Field 
+                name="url"
+                component={this.renderInput} 
+                label="Enter Image url" 
+            />
+            <button className="ui button primaary">Submit</button>
             </form>
         );
     }
@@ -46,10 +60,12 @@ const validate = ( formValues ) => {
     if(!formValues.title) {
         errors.title = 'You must enter a title';
     }
+    if (!formValues.price) {
+        errors.price = 'You must enter a price';
+    }
     if (!formValues.description) {
         errors.description = 'You must enter a description';
     }
-
     return errors;
 };
 
