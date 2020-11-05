@@ -19,11 +19,23 @@ class TodoList extends React.Component {
         if (todo.userId === this.props.currentUserId) {
             return (
                 <div className="right floated content">
-                    <Link to={`todos/edit/${todo.id}`} className="ui button primary">
-                        Edit
-                    </Link>
                     <Link to={`todos/delete/${todo.id}`} className="ui button negative">
                         Delete
+                    </Link>
+                </div>
+            );
+        }
+    }
+
+    renderComplete(todo) {
+        if (todo.userId === this.props.currentUserId) {
+            return (
+                <div className="right floated content">
+                    <Link to={`todos/delete/${todo.id}`} className="ui button positive">
+                        Finish
+                    </Link>
+                    <Link to={`todos/edit/${todo.id}`} className="ui button primary">
+                        Edit
                     </Link>
                 </div>
             );
@@ -35,7 +47,7 @@ class TodoList extends React.Component {
             if (todo.active === true) {
                 return(
                     <div className="item" key={todo.id}>
-                        {this.renderAdmin(todo)}
+                        {this.renderComplete(todo)}
                         <div className="ui grid">
                             <div className="one wide column">
                                 <span className="dot"></span>
@@ -81,7 +93,7 @@ class TodoList extends React.Component {
                             </div>
                             <div className="six wide column">
                                 <div className="date">
-                                    <i class="calendar check outline icon"></i>
+                                    <i className="calendar check outline icon"></i>
                                     {todo.date}
                                 </div>
                             </div> 
@@ -111,6 +123,7 @@ class TodoList extends React.Component {
                 </div>
                 <h2> Todos </h2>
                 <div className="ui celled list"> {this.renderActiveList()} </div>
+                <h2> Completed Todos </h2>
                 <div className="ui celled list"> {this.renderDeactiveList()} </div>
                 {this.renderCreate()}
             </div>
