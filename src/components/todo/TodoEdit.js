@@ -21,7 +21,7 @@ class TodoEdit extends React.Component {
             <div>
                 <h3> Edit a Todo </h3>
                 <TodoForm
-                    initialValues={_.pick(this.props.todo, 'title, description')}
+                    initialValues={_.pick(this.props.todo, 'title', 'description', 'date', 'priority')}
                     onSubmit={this.onSubmit}
                 />
             </div>

@@ -15,7 +15,6 @@ import {
     FETCH_TODO,
     EDIT_TODO,
     DELETE_TODO,
-    COMPLETE_TODO,
 
     CREATE_GROCERIES,
     FETCH_GROCERIES,
@@ -76,7 +75,7 @@ export const deleteRecipe = id => async dispatch => {
 // TODO'S
 export const createTodo = formValues => async (dispatch, getState) => {
     const { userId } = getState().auth;
-    const response = await api.post('/todos', {...formValues, userId, active: true});
+    const response = await api.post('/todos', {...formValues, userId});
 
     dispatch({ type: CREATE_TODO, payload: response.data });
     history.push('/todos');
@@ -92,12 +91,6 @@ export const fetchTodo = (id) => async dispatch => {
     const response = await api.get(`/todos/${id}`);
   
     dispatch({ type: FETCH_TODO, payload: response.data });
-};
-
-export const completeTodo = (id) => async dispatch => {
-    const response = await api.get(`/todos/${id}`);
-  
-    dispatch({ type: COMPLETE_TODO, payload: response.data });
 };
 
 export const editTodo = (id, formValues) => async dispatch => {

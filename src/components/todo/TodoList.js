@@ -10,15 +10,13 @@ class TodoList extends React.Component {
         this.props.fetchTodos();
     }
 
-    fetchTodo = (todo) => {
-        //this.props.fetchTodo(this.props.id);
-        // console.log(todo.id);
-    }
-
     renderAdmin(todo) {
         if (todo.userId === this.props.currentUserId) {
             return (
                 <div className="right floated content">
+                    <Link to={`todos/edit/${todo.id}`} className="ui button positive">
+                        Edit
+                    </Link>
                     <Link to={`todos/delete/${todo.id}`} className="ui button negative">
                         Delete
                     </Link>
@@ -27,85 +25,37 @@ class TodoList extends React.Component {
         }
     }
 
-    renderComplete(todo) {
-        if (todo.userId === this.props.currentUserId) {
-            return (
-                <div className="right floated content">
-                    <Link to={`todos/delete/${todo.id}`} className="ui button positive">
-                        Finish
-                    </Link>
-                    <Link to={`todos/edit/${todo.id}`} className="ui button primary">
-                        Edit
-                    </Link>
+    renderList() {
+        return this.props.todos.map(todo => {
+            return(
+                <div className="item" key={todo.id}>
+                    <div className="ui grid">
+                        <div className="one wide column">
+                            <span className="dot"></span>
+                        </div>
+                        <div className="six wide column">
+                            <div className="title">
+                                {`Todo: ${todo.title}`}
+                            </div>
+                            <div className="description">
+                                {`Description: ${todo.description}`}
+                            </div>
+                        </div>
+                        <div className="four wide column">
+                            <div className="date">
+                                <i className="calendar check outline icon"></i>
+                                {todo.date}
+                            </div>
+                        </div> 
+                        <div className="four wide column">
+                            {this.renderAdmin(todo)}
+                        </div>
+                    </div>
                 </div>
             );
-        }
-    }
-
-    renderActiveList() {
-        return this.props.todos.map(todo => {
-            if (todo.active === true) {
-                return(
-                    <div className="item" key={todo.id}>
-                        
-                        <div className="ui grid">
-                            <div className="one wide column">
-                                <span className="dot"></span>
-                            </div>
-                            <div className="six wide column">
-                                <div className="title">
-                                    {`Todo: ${todo.title}`}
-                                </div>
-                                <div className="description">
-                                    {`Description: ${todo.description}`}
-                                </div>
-                            </div>
-                            <div className="four wide column">
-                                <div className="date">
-                                    <i className="calendar check outline icon"></i>
-                                    {todo.date}
-                                </div>
-                            </div> 
-                            <div className="four wide column">
-                                {this.renderComplete(todo)}
-                            </div>
-                        </div>
-                    </div>
-                );
-            }
         });
     }
-
-    renderDeactiveList() {
-        return this.props.todos.map(todo => {
-            if (todo.active === false) {
-                return(
-                    <div className="item" key={todo.id}>
-                        {this.renderAdmin(todo)}
-                        <div className="ui grid">
-                            <div className="one wide column">
-                                <span className="dot"></span>
-                            </div>
-                            <div className="nine wide column">
-                                <div className="title">
-                                    {`Todo: ${todo.title}`}
-                                </div>
-                                <div className="description">
-                                    {`Description: ${todo.description}`}
-                                </div>
-                            </div>
-                            <div className="six wide column">
-                                <div className="date">
-                                    <i className="calendar check outline icon"></i>
-                                    {todo.date}
-                                </div>
-                            </div> 
-                        </div>
-                    </div>
-                );
-            }
-        });
-    }
+ 
 
     renderCreate() {
         if (this.props.isSignedIn) {
@@ -125,9 +75,7 @@ class TodoList extends React.Component {
                 <div className="banner">
                 </div>
                 <h2> Todos </h2>
-                <div className="ui celled list"> {this.renderActiveList()} </div>
-                <h2> Completed Todos </h2>
-                <div className="ui celled list"> {this.renderDeactiveList()} </div>
+                <div className="ui celled list"> {this.renderList()} </div>
                 {this.renderCreate()}
             </div>
         );

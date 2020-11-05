@@ -14,8 +14,8 @@ class TodoDelete extends React.Component {
         const id = this.props.match.params.id;
         return (
             <React.Fragment>
-                <button onClick={() => this.props.deleteTodo(id)} className="ui button negative">Delte</button>
-                <Link to="/" className="ui button">Cancel</Link>
+                <button onClick={() => this.props.deleteTodo(id)} className="ui button negative">Delete</button>
+                <Link to="/todos" className="ui button">Cancel</Link>
             </React.Fragment>
         );
     }

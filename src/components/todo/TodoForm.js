@@ -50,10 +50,18 @@ class TodoForm extends React.Component {
                 component={this.renderInput}
                 label="Enter date"
             />
-            
-                <button className="ui button primary">Submit</button>
+            <div className="ui grid">
+                <label className="two wide column">Priority:</label>
+                <div className="two wide column">
+                    <label><Field name="priority" component={this.renderInput} type="radio" value="high"/>High</label>
+                 </div>
+                 <div className="two wide column">
+                    <label><Field name="priority" component={this.renderInput} type="radio" value="low"/>Low</label>
+                 </div>
+            </div>
+            <button className="ui button primary">Submit</button>
             </form>
-        );
+        );      
     }
 }
 
