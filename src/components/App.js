@@ -14,7 +14,7 @@ import TodoEdit from './todo/TodoEdit.js';
 import ProductList from './product/ProductList';
 import ProductCreate from './product/ProductCreate';
 import ProductDelete from './product/ProductDelete';
-import ProductEdit from './products/ProductEdit.js';
+import ProductEdit from './product/ProductEdit.js';
 
 import LandingPage from './LandingPage';
 

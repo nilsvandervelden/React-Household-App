@@ -1,11 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux'; 
-import { fetchProducs } from '../../actions';
+import { fetchProducts } from '../../actions';
 import { Link } from 'react-router-dom';
 
 class ProductList extends React.Component {
     componentDidMount(){
-        this.props.fetchProducs();
+        this.props.fetchProducts();
     }
 
     renderAdmin(products) {
@@ -44,8 +44,8 @@ class ProductList extends React.Component {
         if (this.props.isSignedIn) {
             return (
                 <div style={{textAlign: "right"}}>
-                    <Link to="/groceries/new" className="ui button primary">
-                        Add Groceries
+                    <Link to="/products/new" className="ui button primary">
+                        Add Product
                     </Link>
                 </div>
             );
@@ -55,7 +55,7 @@ class ProductList extends React.Component {
     render () {
         return (
             <div> 
-                <h2> Groceries</h2>
+                <h2> Product </h2>
                 <div className="ui celled list"> {this.renderList()} </div>
                 {this.renderCreate()}
             </div>
@@ -71,4 +71,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, { fetchProducs }) (ProductList);
+export default connect(mapStateToProps, { fetchProducts }) (ProductList);
