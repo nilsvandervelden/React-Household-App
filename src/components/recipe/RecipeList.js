@@ -43,11 +43,11 @@ class RecipeList extends React.Component {
                             <div className="meta">
                                 <div className="ui centered grid">
                                     <div className="five wide column">
-                                        <i class="clock outline icon"></i>
+                                        <i className="clock outline icon"></i>
                                         {`${recipe.time} min`}
                                     </div>
                                     <div className="five wide column">
-                                        <i class="euro sign icon"></i>
+                                        <i className="euro sign icon"></i>
                                         {`${recipe.price}`}
                                     </div>
                                 </div>
