@@ -25,13 +25,36 @@ class TodoList extends React.Component {
         }
     }
 
+    renderInfo() {
+        return (
+            <div>
+                <div className="ui grid">
+                    <div className="one wide column">
+                        <span className="dot" style={{border:"2px solid red"}}></span>
+                    </div>
+                    <div className="two wide column">
+                        <p>High priority</p>
+                    </div>
+                </div>
+                <div className="ui grid">
+                    <div className="one wide column">
+                        <span className="dot" style={{border:"2px solid green"}}></span>
+                    </div>
+                    <div className="two wide column">
+                        <p>Low priority</p>
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
     renderList() {
         return this.props.todos.map(todo => {
             return(
                 <div className="item" key={todo.id}>
                     <div className="ui grid">
                         <div className="one wide column">
-                            <span className="dot"></span>
+                            <span className="dot" style={(todo.priority == "high") ? {border:"2px solid red"} : {border:"2px solid green"}}></span>
                         </div>
                         <div className="six wide column">
                             <div className="title">
@@ -77,6 +100,7 @@ class TodoList extends React.Component {
                 <h2> Todos </h2>
                 <div className="ui celled list"> {this.renderList()} </div>
                 {this.renderCreate()}
+                {this.renderInfo()}
             </div>
         );
     }
