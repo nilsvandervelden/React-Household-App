@@ -62,7 +62,7 @@ class TodoList extends React.Component {
                             </div>
                             <div className="six wide column">
                                 <div className="date">
-                                    <i class="calendar check outline icon"></i>
+                                    <i className="calendar check outline icon"></i>
                                     {todo.date}
                                 </div>
                             </div> 
