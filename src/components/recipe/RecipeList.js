@@ -27,10 +27,10 @@ class RecipeList extends React.Component {
             return (
                 <div className="five wide column" key={recipe.id}>
                     <div className="ui cards">
-                        <Link to={`/recipes/${recipe.id}`} className="card">
-                            <div className="image">
+                        <div className="card">
+                            <Link to={`/recipes/${recipe.id}`}className="image">
                                 <img src={recipe.image}></img>
-                            </div>
+                            </Link>
                             <div className="meta">
                                 <div className="ui centered grid">
                                     <div className="five wide column">
@@ -56,7 +56,7 @@ class RecipeList extends React.Component {
                                     {this.renderAdmin(recipe)}
                                 </div>
                             </div>
-                        </Link>
+                        </div>
                     </div>
                 </div>
             );

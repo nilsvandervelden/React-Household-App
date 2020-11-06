@@ -24,13 +24,17 @@ class ProductList extends React.Component {
         }
     }
 
+    addToCard() {
+        console.log('TEST');
+    }
+
     renderList () {
         return this.props.products.map(product => {
             return (
                 <div className="card" key={product.id}>
-                    <Link to={`products/add/${product.id}`} className="image">
+                    <div className="image">
                         <img src={product.url}></img>
-                    </Link>
+                    </div>
                     <div className="content">
                         <a className="text">
                             <div className="ui grid">
@@ -44,17 +48,6 @@ class ProductList extends React.Component {
                         </a>
                     </div>
                 </div>
-
-                //     </div>
-                //     {this.renderAdmin(product)}
-                //     <i className="large middle aligned icon camera" />
-                //     <div className="content">
-                //         <Link to={`/products/${product.id}`} className="header">
-                //             {product.title}
-                //         </Link>
-                //         <div className="description">{product.description}</div>
-                //     </div>
-                // </div>
             );
         });
     }
@@ -75,7 +68,7 @@ class ProductList extends React.Component {
         return (
             <div> 
                 <h2> Product </h2>
-                <div className="ui five stackable cards"> {this.renderList()} </div>
+                <div className="ui five stackable cards"> {this.renderList()}  </div>
                 {this.renderCreate()}
             </div>
         ); 
