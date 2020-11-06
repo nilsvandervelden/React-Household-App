@@ -9,14 +9,14 @@ class ProductList extends React.Component {
         this.props.fetchProducts();
     }
 
-    renderAdmin(products) {
-        if (products.userId === this.props.currentUserId) {
+    renderAdmin(product) {
+        if (product.userId === this.props.currentUserId) {
             return (
                 <div className="right floated content">
-                    <Link to={`products/edit/${products.id}`} className="ui button primary">
+                    <Link to={`products/edit/${product.id}`} className="ui button primary">
                         Edit
                     </Link>
-                    <Link to={`products/delete/${products.id}`}className="ui button negative">
+                    <Link to={`products/delete/${product.id}`}className="ui button negative">
                         Delete
                     </Link>
                 </div>
@@ -28,9 +28,9 @@ class ProductList extends React.Component {
         return this.props.products.map(product => {
             return (
                 <div className="card" key={product.id}>
-                    <div className="image">
+                    <Link to={`products/add/${product.id}`} className="image">
                         <img src={product.url}></img>
-                    </div>
+                    </Link>
                     <div className="content">
                         <a className="text">
                             <div className="ui grid">

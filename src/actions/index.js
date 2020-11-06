@@ -114,7 +114,7 @@ export const createProduct = formValues => async (dispatch, getState) => {
     const response = await api.post('/products', {...formValues, userId });
 
     dispatch({ type: CREATE_PRODUCT, payload: response.data });
-    history.push('/product');
+    history.push('/products');
 };
 
 export const fetchProducts = () => async dispatch => {
