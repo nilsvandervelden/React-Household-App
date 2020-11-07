@@ -26,15 +26,13 @@ class ProductList extends React.Component {
     }
 
     addToList = (product) => {
-        var count = 1;
+        var count = '2';
         var productList = [];
         this.props.shoppingList.map(products => {
             productList.push(products.product_id);
         });
         if (productList.includes(product.id)) {
-            count = count + 1;
-            console.log(count);
-            this.props.editShoppingListProduct(product.id, product.title, product.price, product.url, count);
+            this.props.editShoppingListProduct('3', '3', product.title, product.price, product.url, '10');
             console.log('ik voeg hem niet toe');
         } else {
             console.log('ik heb hem toegevoegd')

@@ -24,7 +24,8 @@ import {
 
     ADD_TO_SHOPPING_LIST,
     FETCH_SHOPPING_LIST_PRODUCTS,
-    EDIT_SHOPPING_LIST_PRODUCT
+    EDIT_SHOPPING_LIST_PRODUCT,
+    FETCH_SHOPPING_LIST_PRODUCT
 
 }   from './types';
 
@@ -160,8 +161,8 @@ export const fetchShoppingListProducts = () => async dispatch => {
 };
 
 export const editShoppingListProduct = (product_id, title, price, url, count) => async dispatch => {
-    console.log(product_id);
-    const response = await api.patch(`/shoppingList/${product_id}`, product_id, title, price, url, count);
+    const response = await api.patch(`/shoppingList/${product_id}`, {product_id, title, price, url, count});
+    console.log(response);
 
     dispatch({ type: EDIT_SHOPPING_LIST_PRODUCT, payload: response.data });
     history.push('/shoppingList');
