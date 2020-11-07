@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux'; 
-import { fetchProducts, addToShoppingList} from '../../actions';
+import { fetchProducts, addToShoppingList, fetchShoppingListProducts} from '../../actions';
 import { Link } from 'react-router-dom';
 import '../../stylesheets/Product.css';
 
 class ProductList extends React.Component {
     componentDidMount(){
         this.props.fetchProducts();
+        this.props.fetchShoppingListProducts();
     }
 
     renderAdmin(product) {
@@ -84,4 +85,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, { fetchProducts, addToShoppingList }) (ProductList);
+export default connect(mapStateToProps, { fetchProducts, addToShoppingList, fetchShoppingListProducts }) (ProductList);
