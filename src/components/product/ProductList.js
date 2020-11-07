@@ -24,15 +24,16 @@ class ProductList extends React.Component {
         }
     }
 
-    addToCard() {
-        console.log('TEST');
+    addToList = (product) => {
+        
+        console.log('this is', product.id);
     }
 
     renderList () {
         return this.props.products.map(product => {
             return (
                 <div className="card" key={product.id}>
-                    <div className="image">
+                    <div className="image" onClick={() => this.addToList(product)}>
                         <img src={product.url}></img>
                     </div>
                     <div className="content">
