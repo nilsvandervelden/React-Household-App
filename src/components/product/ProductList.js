@@ -26,6 +26,9 @@ class ProductList extends React.Component {
     }
 
     addToList = (product) => {
+        this.props.shoppingList.map(product => {
+            console.log(product.title);
+        })
         this.props.addToShoppingList(product.id, product.title, product.price, product.url);
         console.log('this is', product.id);
     }
@@ -80,6 +83,7 @@ class ProductList extends React.Component {
 const mapStateToProps = (state) => {
     return { 
         products: Object.values(state.products),
+        shoppingList: Object.values(state.shoppingList),
         currentUserId: state.auth.userId,
         isSignedIn: state.auth.isSignedIn
     };
