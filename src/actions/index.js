@@ -23,7 +23,8 @@ import {
     DELETE_PRODUCT,
 
     ADD_TO_SHOPPING_LIST,
-    FETCH_SHOPPING_LIST_PRODUCTS
+    FETCH_SHOPPING_LIST_PRODUCTS,
+    EDIT_SHOPPING_LIST_PRODUCT
 
 }   from './types';
 
@@ -146,8 +147,8 @@ export const deleteProduct = id => async dispatch => {
     history.push('/products');
 };
 
-export const addToShoppingList = (product_id, title, price, url) => async dispatch => {
-    const response = await api.post('/shoppingList', {product_id, title, price, url});
+export const addToShoppingList = (product_id, title, price, url, count) => async dispatch => {
+    const response = await api.post('/shoppingList', {product_id, title, price, url, count});
 
     dispatch({ type: ADD_TO_SHOPPING_LIST, payload: response.data });
 }
@@ -156,4 +157,12 @@ export const fetchShoppingListProducts = () => async dispatch => {
     const response = await api.get('/shoppingList');
   
     dispatch({ type: FETCH_SHOPPING_LIST_PRODUCTS, payload: response.data });
+};
+
+export const editShoppingListProduct = (product_id, title, price, url, count) => async dispatch => {
+    console.log(product_id);
+    const response = await api.patch(`/shoppingList/${product_id}`, product_id, title, price, url, count);
+
+    dispatch({ type: EDIT_SHOPPING_LIST_PRODUCT, payload: response.data });
+    history.push('/shoppingList');
 };

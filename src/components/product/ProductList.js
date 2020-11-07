@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'; 
-import { fetchProducts, addToShoppingList, fetchShoppingListProducts} from '../../actions';
+import { fetchProducts, addToShoppingList, fetchShoppingListProducts, editShoppingListProduct} from '../../actions';
 import { Link } from 'react-router-dom';
 import '../../stylesheets/Product.css';
 
@@ -26,15 +26,19 @@ class ProductList extends React.Component {
     }
 
     addToList = (product) => {
+        var count = 1;
         var productList = [];
         this.props.shoppingList.map(products => {
             productList.push(products.product_id);
         });
         if (productList.includes(product.id)) {
+            count = count + 1;
+            console.log(count);
+            this.props.editShoppingListProduct(product.id, product.title, product.price, product.url, count);
             console.log('ik voeg hem niet toe');
         } else {
             console.log('ik heb hem toegevoegd')
-            this.props.addToShoppingList(product.id, product.title, product.price, product.url);
+            this.props.addToShoppingList(product.id, product.title, product.price, product.url, count);
         }
     }
 
@@ -94,4 +98,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, { fetchProducts, addToShoppingList, fetchShoppingListProducts }) (ProductList);
+export default connect(mapStateToProps, { fetchProducts, addToShoppingList, fetchShoppingListProducts, editShoppingListProduct }) (ProductList);
