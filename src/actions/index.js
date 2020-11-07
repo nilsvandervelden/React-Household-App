@@ -22,6 +22,8 @@ import {
     EDIT_PRODUCT,
     DELETE_PRODUCT,
 
+    ADD_TO_SHOPPING_LIST
+
 }   from './types';
 
 export const signIn = userId => {
@@ -142,3 +144,9 @@ export const deleteProduct = id => async dispatch => {
     dispatch({ type: DELETE_PRODUCT, payload: id });
     history.push('/products');
 };
+
+export const addToShoppingList = (id, title, price, url) => async dispatch => {
+    const response = await api.post('/shoppingList', {id,title,price,url});
+
+    dispatch({ type: ADD_TO_SHOPPING_LIST, payload: response.data });
+}

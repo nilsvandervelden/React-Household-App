@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'; 
-import { fetchProducts } from '../../actions';
+import { fetchProducts, addToShoppingList} from '../../actions';
 import { Link } from 'react-router-dom';
 import '../../stylesheets/Product.css';
 
@@ -25,7 +25,7 @@ class ProductList extends React.Component {
     }
 
     addToList = (product) => {
-        
+        this.props.addToShoppingList(product.id, product.title, product.price, product.url);
         console.log('this is', product.id);
     }
 
@@ -84,4 +84,4 @@ const mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, { fetchProducts }) (ProductList);
+export default connect(mapStateToProps, { fetchProducts, addToShoppingList }) (ProductList);
