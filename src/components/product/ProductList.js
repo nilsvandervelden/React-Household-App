@@ -1,10 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux'; 
-import { fetchProducts, addToShoppingList, fetchShoppingListProducts, editShoppingListProduct} from '../../actions';
+import { fetchProducts, addToShoppingList, fetchShoppingListProducts, editShoppingListProduct, fetchShoppingListProduct} from '../../actions';
 import { Link } from 'react-router-dom';
 import '../../stylesheets/Product.css';
 
 class ProductList extends React.Component {
+
+    
     componentDidMount(){
         this.props.fetchProducts();
         this.props.fetchShoppingListProducts();
@@ -25,17 +27,26 @@ class ProductList extends React.Component {
         }
     }
 
+
     addToList = (product) => {
-        var count = '2';
         var productList = [];
+        var productIdList = [];
         this.props.shoppingList.map(products => {
-            productList.push(products.product_id);
+            productIdList.push(products.product_id);
+            productList.push(products);
         });
-        if (productList.includes(product.id)) {
-            this.props.editShoppingListProduct('3', '3', product.title, product.price, product.url, '10');
+        if (productIdList.includes(product.id)) {
+            //console.log(productList[product.id]);
+            // console.log(product.id);
+            console.log(this.props.shoppingListProduct[product.id])
+            //var count = this.props.shoppingListProduct[product.id].count;
+            //count += 1;
+
+            //this.props.editShoppingListProduct(product.id, product.title, product.price, product.url, 1);
             console.log('ik voeg hem niet toe');
         } else {
             console.log('ik heb hem toegevoegd')
+            var count = 1;
             this.props.addToShoppingList(product.id, product.title, product.price, product.url, count);
         }
     }
@@ -91,9 +102,10 @@ const mapStateToProps = (state) => {
     return { 
         products: Object.values(state.products),
         shoppingList: Object.values(state.shoppingList),
+        shoppingListProduct: state.shoppingList,
         currentUserId: state.auth.userId,
         isSignedIn: state.auth.isSignedIn
     };
 };
 
-export default connect(mapStateToProps, { fetchProducts, addToShoppingList, fetchShoppingListProducts, editShoppingListProduct }) (ProductList);
+export default connect(mapStateToProps, { fetchProducts, addToShoppingList, fetchShoppingListProducts, editShoppingListProduct, fetchShoppingListProduct }) (ProductList);

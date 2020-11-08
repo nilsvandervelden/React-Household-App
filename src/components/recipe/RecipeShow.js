@@ -76,6 +76,7 @@ class RecipeShow extends React.Component{
 }
 
 const mapStateToProps = (state, ownProps) => {
+    console.log(ownProps);
     return { recipe: state.recipes[ownProps.match.params.id] };
 ;}
 
