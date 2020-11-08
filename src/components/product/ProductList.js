@@ -36,8 +36,6 @@ class ProductList extends React.Component {
             productList.push(products);
         });
         if (productIdList.includes(product.id)) {
-            //console.log(productList[product.id]);
-            // console.log(product.id);
             console.log(this.props.shoppingListProduct[product.id])
             //var count = this.props.shoppingListProduct[product.id].count;
             //count += 1;
