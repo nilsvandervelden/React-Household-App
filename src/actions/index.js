@@ -25,7 +25,8 @@ import {
     ADD_TO_SHOPPING_LIST,
     FETCH_SHOPPING_LIST_PRODUCTS,
     EDIT_SHOPPING_LIST_PRODUCT,
-    FETCH_SHOPPING_LIST_PRODUCT
+    FETCH_SHOPPING_LIST_PRODUCT,
+    INCREMENT_SHOPPING_LIST_PRODUCT
     
 
 }   from './types';
@@ -173,4 +174,11 @@ export const fetchShoppingListProduct = (id) => async dispatch => {
     console.log(response);
   
     dispatch({ type: FETCH_SHOPPING_LIST_PRODUCT, payload: response.data });
+};
+
+export const incrementShoppingListProduct = (id, product_id, title, price, url, count) => async dispatch => {
+    const response = await api.patch(`/shoppingList/${id}`, {product_id, title, price, url, count});
+
+    dispatch({ type: INCREMENT_SHOPPING_LIST_PRODUCT, payload: response.data });
+    history.push('/shoppingList');
 };

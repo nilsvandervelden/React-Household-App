@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchShoppingListProducts, fetchShoppingListProduct } from '../../actions';
+import { fetchShoppingListProducts, fetchShoppingListProduct, incrementShoppingListProduct } from '../../actions';
 import { Link } from 'react-router-dom';
 import '../../stylesheets/ShoppingList.css';
 
@@ -10,13 +10,40 @@ class ShoppingList extends React.Component {
         this.props.fetchShoppingListProducts();
     }
 
+    incrementProduct = (product) => {
+        var productList = [];
+        var productIdList = [];
+        this.props.shoppingList.map(products => {
+            productIdList.push(products.product_id);
+            productList.push(products);
+        });
+        if (productIdList.includes(product.id)) {
+            this.props.shoppingList.map(products => {
+                if(this.props.shoppingListProduct[products.id].product_id === product.id) {
+                    var count = (this.props.shoppingListProduct[products.id].count);
+                    count += 1;
+                    this.props.incrementShoppingListProduct(products.id, products.product_id, product.title, product.price, product.url, count);
+                }
+            });
+        }
+    }
+
     renderAdmin(shoppingListProduct) {
         return (
             <div className="right floated content">
                 <div className="container">
-                    <Link to={`shoppingList/delete/${shoppingListProduct.id}`}>
-                        <i class="trash alternate outline icon"></i>
+                    <Link to={`shoppingList/delete/${shoppingListProduct.id}`} className="left">
+                        <i className="trash alternate outline icon"></i>
                     </Link>
+                    <div className="middle">
+                        <button onClick={() => this.incrementProduct(shoppingListProduct)} className="w3-button w3-circle w3-teal"> + </button>
+                    </div>
+                    <div className="test">
+                        <h3> {shoppingListProduct.count} </h3>
+                    </div>
+                    <div className="right">
+                        <button className="w3-button w3-circle w3-teal">-</button>
+                    </div>
                 </div>
             </div>
         );
@@ -70,6 +97,7 @@ class ShoppingList extends React.Component {
 const mapStateToProps = state => {
     return {
         shoppingList: Object.values(state.shoppingList),
+        shoppingListProduct: state.shoppingList,
         currentUserId: state.auth.userId,
         isSignedIn: state.auth.isSignedIn
     };
@@ -77,5 +105,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { fetchShoppingListProducts, fetchShoppingListProduct }
+    { fetchShoppingListProducts, fetchShoppingListProduct, incrementShoppingListProduct }
   )(ShoppingList);

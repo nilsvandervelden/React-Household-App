@@ -25,11 +25,47 @@
 }
 
 .container {
+    display: flex;
+    margin: 0 auto;
+    padding: 0;
     min-height: 94px;
     min-width: 50px;
+    max-width: 200px;
     position: relative;
 }
 
+.container .left {
+   width: 25%;
+}
+
+.container .middle {
+    width: 25%;
+}
+
+.container .test {
+    width: 25%;
+ }
+
+.container .right {
+    width: 25%;
+}
+
+.container .right h3 {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%)
+}
+
+.w3-button {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    padding: 4px 8px;
+}
 
 i.icon.trash.alternate.outline::before {
     
