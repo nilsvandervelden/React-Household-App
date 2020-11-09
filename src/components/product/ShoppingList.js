@@ -91,7 +91,6 @@ class ShoppingList extends React.Component {
             );
         }
     }
-
     calculatePrice() {
         var totalprice = 0;
         this.props.shoppingList.map(shoppingListProduct => {
@@ -100,7 +99,7 @@ class ShoppingList extends React.Component {
         });
         return(
             <div className="totalprice">
-                <p> {totalprice} </p>
+                <h2>{`Total Price: ${totalprice}`}</h2>
             </div>
         );
     }
@@ -112,8 +111,8 @@ class ShoppingList extends React.Component {
                 </div>
                 <h2> Groceries </h2>
                 <div className="ui celled list"> {this.renderList()} </div>
-                {this.renderAdd()}
                 {this.calculatePrice()}
+                {this.renderAdd()}
             </div>
         );
     }
