@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchShoppingListProducts, fetchShoppingListProduct, changeShoppingListProductCount } from '../../actions';
+import { fetchShoppingListProducts, changeShoppingListProductCount, deleteShoppingListProduct } from '../../actions';
 import { Link } from 'react-router-dom';
 import '../../stylesheets/ShoppingList.css';
 
@@ -30,9 +30,9 @@ class ShoppingList extends React.Component {
         return (
             <div className="test">
                 <div className="container">
-                    <Link to={`shoppingList/delete/${shoppingListProduct.id}`} className="delete_button">
-                        <i className="trash alternate outline icon"></i>
-                    </Link>
+                    <div className="delete_button">
+                        <i onClick={() => this.deleteShoppingListProduct(shoppingListProduct.id)} className="trash alternate outline icon"></i>
+                    </div>
                     <div className="plus_button">
                         <button onClick={() => this.incrementProduct(shoppingListProduct)} className="w3-button w3-circle w3-teal"> + </button>
                     </div>
@@ -103,5 +103,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { fetchShoppingListProducts, fetchShoppingListProduct, changeShoppingListProductCount }
+    { fetchShoppingListProducts, changeShoppingListProductCount, deleteShoppingListProduct }
   )(ShoppingList);

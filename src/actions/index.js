@@ -26,7 +26,8 @@ import {
     FETCH_SHOPPING_LIST_PRODUCTS,
     EDIT_SHOPPING_LIST_PRODUCT,
     FETCH_SHOPPING_LIST_PRODUCT,
-    CHANGE_SHOPPING_LIST_PRODUCT_COUNT
+    CHANGE_SHOPPING_LIST_PRODUCT_COUNT,
+    DELETE_SHOPPING_LIST_PRODUCT
     
 }   from './types';
 
@@ -181,3 +182,11 @@ export const changeShoppingListProductCount = (id, product_id, title, price, url
     dispatch({ type: CHANGE_SHOPPING_LIST_PRODUCT_COUNT, payload: response.data });
     history.push('/shoppingList');
 };
+
+export const deleteShoppingListProduct = id => async dispatch => {
+    await api.delete(`/shoppingList/${id}`);
+
+    dispatch({ type: DELETE_SHOPPING_LIST_PRODUCT, payload: id });
+    history.push('/shoppingList');
+};
+
