@@ -6,7 +6,6 @@ import '../../stylesheets/Product.css';
 
 class ProductList extends React.Component {
 
-    
     componentDidMount(){
         this.props.fetchProducts();
         this.props.fetchShoppingListProducts();

@@ -20,6 +20,7 @@ import LandingPage from './LandingPage';
 
 import Header from './Header';
 import history from '../history';
+import ShoppingList from './product/ShoppingList';
 
 const App = () => {
   return (
@@ -35,6 +36,7 @@ const App = () => {
                         <Route path="/recipes/edit/:id" exact component={RecipeEdit} />
                         <Route path="/recipes/delete/:id" exact component={RecipeDelete} />
                         <Route path="/recipes/:id" exact component={RecipeShow} />
+                        <Route path="/shoppingList" exact component={ShoppingList} />
 
                         <Route path="/todos" exact component={TodoList} />
                         <Route path="/todos/new" exact component={TodoCreate} />
