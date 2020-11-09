@@ -91,6 +91,7 @@ class ShoppingList extends React.Component {
             );
         }
     }
+    
     calculatePrice() {
         var totalprice = 0;
         this.props.shoppingList.map(shoppingListProduct => {

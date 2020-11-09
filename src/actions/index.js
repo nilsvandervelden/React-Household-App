@@ -44,7 +44,6 @@ export const signOut = () => {
     };
 };
 
-// RECIPES
 export const createRecipe = formValues => async (dispatch, getState) => {
     const { userId } = getState().auth;
     const response = await api.post('/recipes', {...formValues, userId });
@@ -79,7 +78,6 @@ export const deleteRecipe = id => async dispatch => {
     history.push('/recipes')
 };
 
-// TODO'S
 export const createTodo = formValues => async (dispatch, getState) => {
     const { userId } = getState().auth;
     const response = await api.post('/todos', {...formValues, userId});
@@ -113,8 +111,6 @@ export const deleteTodo = id => async dispatch => {
     dispatch({ type: DELETE_TODO, payload: id });
     history.push('/todos')
 };
-
-// PRODUCT
 
 export const createProduct = formValues => async (dispatch, getState) => {
     const { userId } = getState().auth;
