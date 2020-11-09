@@ -22,8 +22,12 @@ class ShoppingList extends React.Component {
         count -= 1;
         this.props.changeShoppingListProductCount(product.id, product.product_id, product.title, product.price, product.url, count);          
         } else {
-            this.props.deleteShoppingListProduct(product.id)
+            this.deleteProduct(product)
         }
+    }
+
+    deleteProduct = (product) => {
+        this.props.deleteShoppingListProduct(product.id)
     }
 
     renderAdmin(shoppingListProduct) {
@@ -31,7 +35,7 @@ class ShoppingList extends React.Component {
             <div className="test">
                 <div className="container">
                     <div className="delete_button">
-                        <i onClick={() => this.deleteShoppingListProduct(shoppingListProduct.id)} className="trash alternate outline icon"></i>
+                        <i onClick={() => this.deleteProduct(shoppingListProduct)} className="trash alternate outline icon"></i>
                     </div>
                     <div className="plus_button">
                         <button onClick={() => this.incrementProduct(shoppingListProduct)} className="w3-button w3-circle w3-teal"> + </button>
