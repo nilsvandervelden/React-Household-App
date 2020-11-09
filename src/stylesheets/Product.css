@@ -35,3 +35,14 @@
     margin-bottom: 10px;
 }
 
+.product-header {
+    display: inline-flex;
+    width: 90%;
+}
+
+.shopping_cart {
+    font-size: 150%;
+    display: inline-flex;
+    width: 10%;
+}
+

@@ -86,8 +86,11 @@ class ProductList extends React.Component {
 
     render () {
         return (
-            <div> 
-                <h2> Product </h2>
+            <div>
+                <h2 className="product-header"> Products </h2>
+                <div className="shopping_cart">
+                    <i className="shopping cart icon"></i>
+                </div>
                 <div className="ui five stackable cards"> {this.renderList()}  </div>
                 {this.renderCreate()}
             </div>
@@ -99,7 +102,7 @@ const mapStateToProps = (state) => {
     return { 
         products: Object.values(state.products),
         shoppingList: Object.values(state.shoppingList),
-        shoppingListProduct: state.shoppingList, //add id here?
+        shoppingListProduct: state.shoppingList,
         currentUserId: state.auth.userId,
         isSignedIn: state.auth.isSignedIn
     };

@@ -31,7 +31,6 @@ class RecipeShow extends React.Component{
         if (!this.props.recipe) {
             return <div>Loading...</div>
         }
-
         const {title, description} = this.props.recipe;
 
         return (
