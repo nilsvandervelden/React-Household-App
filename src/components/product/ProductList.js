@@ -14,7 +14,7 @@ class ProductList extends React.Component {
     renderAdmin(product) {
         if (product.userId === this.props.currentUserId) {
             return (
-                <div className="right floated content">
+                <div className="content">
                     <Link to={`products/edit/${product.id}`} className="ui button primary">
                         Edit
                     </Link>

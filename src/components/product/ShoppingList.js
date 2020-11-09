@@ -28,18 +28,18 @@ class ShoppingList extends React.Component {
 
     renderAdmin(shoppingListProduct) {
         return (
-            <div className="right floated content">
+            <div className="test">
                 <div className="container">
-                    <Link to={`shoppingList/delete/${shoppingListProduct.id}`} className="left">
+                    <Link to={`shoppingList/delete/${shoppingListProduct.id}`} className="delete_button">
                         <i className="trash alternate outline icon"></i>
                     </Link>
-                    <div className="middle">
+                    <div className="plus_button">
                         <button onClick={() => this.incrementProduct(shoppingListProduct)} className="w3-button w3-circle w3-teal"> + </button>
                     </div>
-                    <div className="test">
+                    <div className="product_count">
                         <h3> {shoppingListProduct.count} </h3>
                     </div>
-                    <div className="right">
+                    <div className="min_button">
                         <button onClick={() => this.decrementProduct(shoppingListProduct)} className="w3-button w3-circle w3-teal">-</button>
                     </div>
                 </div>
