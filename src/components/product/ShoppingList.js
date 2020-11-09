@@ -26,7 +26,7 @@ class ShoppingList extends React.Component {
         return this.props.shoppingList.map(shoppingListProduct => {
             return(
                 <div className="item" key={shoppingListProduct.id}>
-                    {this.renderAdmin(shoppingListProduct)}
+                        {this.renderAdmin(shoppingListProduct)}
                     <div className="ui tiny image"> 
                         <img src={shoppingListProduct.url}></img>
                     </div>

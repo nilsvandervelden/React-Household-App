@@ -28,7 +28,7 @@ class RecipeList extends React.Component {
                 <div className="five wide column" key={recipe.id}>
                     <div className="ui cards">
                         <div className="card">
-                            <Link className="image">
+                            <Link to={`/recipes/${recipe.id}`} className="image">
                                 <img src={recipe.image}></img>
                             </Link>
                             <div className="meta">
