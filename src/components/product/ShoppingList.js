@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchShoppingListProducts, fetchShoppingListProduct, incrementShoppingListProduct } from '../../actions';
+import { fetchShoppingListProducts, fetchShoppingListProduct, changeShoppingListProductCount } from '../../actions';
 import { Link } from 'react-router-dom';
 import '../../stylesheets/ShoppingList.css';
 
@@ -11,20 +11,18 @@ class ShoppingList extends React.Component {
     }
 
     incrementProduct = (product) => {
-        var productList = [];
-        var productIdList = [];
-        this.props.shoppingList.map(products => {
-            productIdList.push(products.product_id);
-            productList.push(products);
-        });
-        if (productIdList.includes(product.id)) {
-            this.props.shoppingList.map(products => {
-                if(this.props.shoppingListProduct[products.id].product_id === product.id) {
-                    var count = (this.props.shoppingListProduct[products.id].count);
-                    count += 1;
-                    this.props.incrementShoppingListProduct(products.id, products.product_id, product.title, product.price, product.url, count);
-                }
-            });
+        var count = product.count;
+        count += 1;
+        this.props.changeShoppingListProductCount(product.id, product.product_id, product.title, product.price, product.url, count);           
+    }
+
+    decrementProduct = (product) => {
+        if (product.count > 1) { 
+        var count = product.count;
+        count -= 1;
+        this.props.changeShoppingListProductCount(product.id, product.product_id, product.title, product.price, product.url, count);          
+        } else {
+            this.props.deleteShoppingListProduct(product.id)
         }
     }
 
@@ -42,7 +40,7 @@ class ShoppingList extends React.Component {
                         <h3> {shoppingListProduct.count} </h3>
                     </div>
                     <div className="right">
-                        <button className="w3-button w3-circle w3-teal">-</button>
+                        <button onClick={() => this.decrementProduct(shoppingListProduct)} className="w3-button w3-circle w3-teal">-</button>
                     </div>
                 </div>
             </div>
@@ -105,5 +103,5 @@ const mapStateToProps = state => {
 
 export default connect(
     mapStateToProps,
-    { fetchShoppingListProducts, fetchShoppingListProduct, incrementShoppingListProduct }
+    { fetchShoppingListProducts, fetchShoppingListProduct, changeShoppingListProductCount }
   )(ShoppingList);
