@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { fetchShoppingListProducts, fetchShoppingListProduct } from '../../actions';
 import { Link } from 'react-router-dom';
-import '../../stylesheets/Dot.css';
+import '../../stylesheets/ShoppingList.css';
 
 
 class ShoppingList extends React.Component {
@@ -13,9 +13,11 @@ class ShoppingList extends React.Component {
     renderAdmin(shoppingListProduct) {
         return (
             <div className="right floated content">
-                <Link to={`shoppingList/delete/${shoppingListProduct.id}`} className="ui button negative">
-                    Remove
-                </Link>
+                <div className="container">
+                    <Link to={`shoppingList/delete/${shoppingListProduct.id}`}>
+                        <i class="trash alternate outline icon"></i>
+                    </Link>
+                </div>
             </div>
         );
     }
@@ -29,8 +31,10 @@ class ShoppingList extends React.Component {
                         <img src={shoppingListProduct.url}></img>
                     </div>
                     <div className="content">
-                        <h3 className="title">{shoppingListProduct.title}</h3>
-                        <h4 className="price">{shoppingListProduct.price}</h4>
+                        <div className="centered">
+                            <h3 className="title">{shoppingListProduct.title}</h3>
+                            <h4 className="price">{`${shoppingListProduct.price} per stuk`}</h4>
+                        </div>
                     </div>
                 </div>
             );

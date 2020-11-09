@@ -1,0 +1,44 @@
+.ui.tiny.image{
+    min-height: 100px;
+    min-width: 100px;
+}  
+
+.content {
+    position: relative;
+    height: 100%;
+}
+
+.centered {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.content h3 {
+   margin: 0;
+}
+
+.content h4 {
+    margin: 0;
+}
+
+.container {
+    min-height: 94px;
+    min-width: 50px;
+    position: relative;
+}
+
+
+i.icon.trash.alternate.outline::before {
+    
+    color: black;
+    font-size: 150%;
+
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%)
+}
