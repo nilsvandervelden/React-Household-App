@@ -36,14 +36,14 @@ class ProductList extends React.Component {
             productList.push(products);
         });
         if (productIdList.includes(product.id)) {
-            console.log(this.props.shoppingListProduct[product.id])
-            //var count = this.props.shoppingListProduct[product.id].count;
-            //count += 1;
-
-            //this.props.editShoppingListProduct(product.id, product.title, product.price, product.url, 1);
-            console.log('ik voeg hem niet toe');
+            this.props.shoppingList.map(products => {
+                if(this.props.shoppingListProduct[products.id].product_id === product.id) {
+                    var count = (this.props.shoppingListProduct[products.id].count);
+                    count += 1;
+                    this.props.editShoppingListProduct(products.id, products.product_id, product.title, product.price, product.url, count);
+                }
+            });
         } else {
-            console.log('ik heb hem toegevoegd')
             var count = 1;
             this.props.addToShoppingList(product.id, product.title, product.price, product.url, count);
         }
@@ -100,7 +100,7 @@ const mapStateToProps = (state) => {
     return { 
         products: Object.values(state.products),
         shoppingList: Object.values(state.shoppingList),
-        shoppingListProduct: state.shoppingList,
+        shoppingListProduct: state.shoppingList, //add id here?
         currentUserId: state.auth.userId,
         isSignedIn: state.auth.isSignedIn
     };

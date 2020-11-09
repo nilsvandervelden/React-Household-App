@@ -161,8 +161,8 @@ export const fetchShoppingListProducts = () => async dispatch => {
     dispatch({ type: FETCH_SHOPPING_LIST_PRODUCTS, payload: response.data });
 };
 
-export const editShoppingListProduct = (product_id, title, price, url, count) => async dispatch => {
-    const response = await api.patch(`/shoppingList/${product_id}`, {product_id, title, price, url, count});
+export const editShoppingListProduct = (id, product_id, title, price, url, count) => async dispatch => {
+    const response = await api.patch(`/shoppingList/${id}`, {product_id, title, price, url, count});
 
     dispatch({ type: EDIT_SHOPPING_LIST_PRODUCT, payload: response.data });
     history.push('/products');
