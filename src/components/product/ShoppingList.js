@@ -30,6 +30,12 @@ class ShoppingList extends React.Component {
         this.props.deleteShoppingListProduct(product.id)
     }
 
+    deleteAllProducts = () => {
+        this.props.shoppingList.map(shoppingListProduct => {
+            this.props.deleteShoppingListProduct(shoppingListProduct.id) 
+        });
+    }
+
     renderAdmin(shoppingListProduct) {
         return (
             <div className="test">
@@ -78,9 +84,25 @@ class ShoppingList extends React.Component {
                     <Link to="/products" className="ui button primary">
                         Add Products
                     </Link>
+                    <div onClick={() => this.deleteAllProducts()} className="ui button negative">
+                        Clear List
+                    </div>
                 </div>
             );
         }
+    }
+
+    calculatePrice() {
+        var totalprice = 0;
+        this.props.shoppingList.map(shoppingListProduct => {
+            totalprice += (parseFloat(shoppingListProduct.price) * parseFloat(shoppingListProduct.count));
+        totalprice = Math.round(totalprice * 100) / 100;
+        });
+        return(
+            <div className="totalprice">
+                <p> {totalprice} </p>
+            </div>
+        );
     }
 
     render() {
@@ -91,6 +113,7 @@ class ShoppingList extends React.Component {
                 <h2> Groceries </h2>
                 <div className="ui celled list"> {this.renderList()} </div>
                 {this.renderAdd()}
+                {this.calculatePrice()}
             </div>
         );
     }
