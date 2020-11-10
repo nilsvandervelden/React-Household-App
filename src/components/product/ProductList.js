@@ -84,14 +84,27 @@ class ProductList extends React.Component {
         }
     }
 
+    productCount() {
+        var productCount = 0;
+        this.props.shoppingList.map(product => {
+            productCount += (product.count);
+        });
+        return (
+            <div className="product-count"> 
+                <h2>{productCount}</h2>
+            </div>
+        );
+    }
+
     render () {
         return (
             <div>
                 <h2 className="product-header"> Products </h2>
                 <div className="shopping_cart">
-                <Link to={`shoppingList`}>
-                    <i className="shopping cart icon"></i>
-                </Link>
+                    <Link to={`shoppingList`}>
+                        <i className="shopping cart icon"></i>
+                    </Link>
+                    {this.productCount()}
                 </div>
                 <div className="ui five stackable cards"> {this.renderList()}  </div>
                 {this.renderCreate()}

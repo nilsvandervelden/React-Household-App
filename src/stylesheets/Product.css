@@ -44,5 +44,26 @@
     font-size: 150%;
     display: inline-flex;
     width: 10%;
+    position: relative;
 }
+
+i.icon.shopping.cart::before {
+    color: black;
+    cursor: pointer;
+    display: inline-flex;
+    width: 50%; 
+}
+
+.product-count {
+    margin-left: 10px;
+}
+.product-count h2 {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+
 
