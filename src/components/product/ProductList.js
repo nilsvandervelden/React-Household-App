@@ -89,12 +89,14 @@ class ProductList extends React.Component {
             <div>
                 <h2 className="product-header"> Products </h2>
                 <div className="shopping_cart">
+                <Link to={`shoppingList`}>
                     <i className="shopping cart icon"></i>
+                </Link>
                 </div>
                 <div className="ui five stackable cards"> {this.renderList()}  </div>
                 {this.renderCreate()}
             </div>
-        ); 
+        );           
     }
 }
 

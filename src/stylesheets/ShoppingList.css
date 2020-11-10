@@ -86,3 +86,8 @@ i.icon.trash.alternate.outline::before {
     -ms-transform: translateY(-50%);
     transform: translateY(-50%)
 }
+
+i.icon.shopping.cart::before {
+    color: black;
+    cursor: pointer;
+}
