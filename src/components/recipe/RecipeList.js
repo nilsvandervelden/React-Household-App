@@ -29,7 +29,7 @@ class RecipeList extends React.Component {
                     <div className="ui cards">
                         <div className="card">
                             <Link to={`/recipes/${recipe.id}`} className="image">
-                                <img src={recipe.image}></img>
+                                <img src={recipe.image} alt="Couldn't load"/>
                             </Link>
                             <div className="meta">
                                 <div className="ui centered grid">

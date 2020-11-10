@@ -9,10 +9,9 @@ class RecipeShow extends React.Component{
     }
 
     renderBannner = () => {
-        // const imageURL = this.props.recipe.image;
         return (
             <header className="banner">
-                <img src={this.props.recipe.image}></img>
+                <img src={this.props.recipe.image} alt="Couldn't load image"></img>
             </header>
         )
     }

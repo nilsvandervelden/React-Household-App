@@ -54,7 +54,7 @@ class TodoList extends React.Component {
                 <div className="item" key={todo.id}>
                     <div className="ui grid">
                         <div className="one wide column">
-                            <span className="dot" style={(todo.priority == "high") ? {border:"2px solid red"} : {border:"2px solid green"}}></span>
+                            <span className="dot" style={(todo.priority === "high") ? {border:"2px solid red"} : {border:"2px solid green"}}></span>
                         </div>
                         <div className="six wide column">
                             <div className="title">
