@@ -80,7 +80,7 @@ class ShoppingList extends React.Component {
     renderAdd() {
         if (this.props.isSignedIn) {
             return (
-                <div style={{textAlign: "right"}}>
+                <div style={{ textAlign: 'right', margin: 10, textAlign: "right"}}>
                     <Link to="/products" className="ui button primary">
                         Add Products
                     </Link>
@@ -91,7 +91,7 @@ class ShoppingList extends React.Component {
             );
         }
     }
-    
+
     calculatePrice() {
         var totalprice = 0;
         this.props.shoppingList.map(shoppingListProduct => {

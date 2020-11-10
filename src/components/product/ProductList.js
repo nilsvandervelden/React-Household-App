@@ -75,7 +75,7 @@ class ProductList extends React.Component {
     renderCreate() {
         if (this.props.isSignedIn) {
             return (
-                <div style={{textAlign: "right"}}>
+                <div style={{ textAlign: 'right', margin: 10, textAlign: "right"}}>
                     <Link to="/products/new" className="ui button primary">
                         Add Product
                     </Link>
