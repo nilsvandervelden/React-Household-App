@@ -28,7 +28,7 @@ const App = () => {
                     <Header />
                     <Switch>
 
-                        <Route path="/" exact component={RecipeList} />
+                        <Route path="/recipes" exact component={RecipeList} />
                         <Route path="/recipes/new" exact component={RecipeCreate} />
                         <Route path="/recipes/edit/:id" exact component={RecipeEdit} />
                         <Route path="/recipes/delete/:id" exact component={RecipeDelete} />

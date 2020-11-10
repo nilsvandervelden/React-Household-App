@@ -1,4 +1,5 @@
 import React from 'react';
+import '../../stylesheets/RecipeShow.css';
 import { connect } from 'react-redux';
 import { fetchRecipe } from '../../actions';
 
@@ -7,12 +8,21 @@ class RecipeShow extends React.Component{
         this.props.fetchRecipe(this.props.match.params.id);
     }
 
+    renderBannner = () => {
+        // const imageURL = this.props.recipe.image;
+        return (
+            <header className="banner">
+                <img src={this.props.recipe.image}></img>
+            </header>
+        )
+    }
+
     renderSteps() {
         const stepsObjectArray = this.props.recipe.step;
         const steps = []
 
         for (let index = 0; index < stepsObjectArray.length; index++) {
-            steps.push(<li style={{margin: 10}} key={index}>{stepsObjectArray[index][index] }</li>)
+            steps.push(<li className="step" key={index}>{stepsObjectArray[index][index] }</li>)
         }
         return steps;
     }
@@ -22,7 +32,7 @@ class RecipeShow extends React.Component{
         const ingredients = []
 
         for (let index = 0; index < ingredientObjectArray.length; index++) {
-            ingredients.push(<li key={index}>{ingredientObjectArray[index][index]}</li>)
+            ingredients.push(<li className="ingredient" key={index}>{ingredientObjectArray[index][index]}</li>)
         }
         return ingredients
     }
@@ -35,12 +45,13 @@ class RecipeShow extends React.Component{
 
         return (
             <div>
-                <div>
+                <div className="title">
                     <h1>{title} </h1>
                 </div>
-                <div className="ui raised segment">
-                    <h5>{description} </h5>
+                <div className="description">
+                    <h2>{description} </h2>
                 </div>
+                {this.renderBannner()}
                 <div className="ui two column very relaxed stackable grid">
                     <div className="column">
                         <h3> Ingredients: </h3>
@@ -75,7 +86,7 @@ class RecipeShow extends React.Component{
 }
 
 const mapStateToProps = (state, ownProps) => {
-    console.log(ownProps);
+    //console.log(ownProps);
     return { recipe: state.recipes[ownProps.match.params.id] };
 ;}
 
