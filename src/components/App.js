@@ -16,8 +16,6 @@ import ProductCreate from './product/ProductCreate';
 import ProductDelete from './product/ProductDelete';
 import ProductEdit from './product/ProductEdit.js';
 
-import LandingPage from './LandingPage';
-
 import Header from './Header';
 import history from '../history';
 import ShoppingList from './product/ShoppingList';
@@ -29,9 +27,8 @@ const App = () => {
                 <div>
                     <Header />
                     <Switch>
-                        <Route path="/" exact component={LandingPage} />
 
-                        <Route path="/recipes" exact component={RecipeList} />
+                        <Route path="/" exact component={RecipeList} />
                         <Route path="/recipes/new" exact component={RecipeCreate} />
                         <Route path="/recipes/edit/:id" exact component={RecipeEdit} />
                         <Route path="/recipes/delete/:id" exact component={RecipeDelete} />
@@ -47,6 +44,7 @@ const App = () => {
                         <Route path="/products/new" exact component={ProductCreate} />
                         <Route path="/products/edit/:id" exact component={ProductEdit} />
                         <Route path="/products/delete/:id" exact component={ProductDelete} />
+
                     </Switch>
                 </div>
             </Router>
